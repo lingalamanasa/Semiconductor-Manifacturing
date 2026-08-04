@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Sign In — Stackly</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body style="display:flex; align-items:center; justify-content:center; min-height:100vh; background: radial-gradient(circle at 50% 50%, var(--bg-secondary), var(--bg));">
+    <!-- RADAR LOADER -->
+    <div id="loader" style="opacity: 0; visibility: hidden;">
+        <div class="loader-container">
+            <div class="radar">
+                <span class="ring ring1"></span>
+                <span class="ring ring2"></span>
+                <div class="core"><img src="./images/stackly_logo.webp" alt="Stackly Logo"></div>
+                <div class="scanner"></div>
+            </div>
+            <h2>STACKLY</h2>
+            <p style="font-size:0.8rem; color:var(--muted-text); margin-top:0.3rem;" id="loading-status">AUTHENTICATING USER CREDENTIALS...</p>
+            <div class="progress"><div class="progress-bar"><span id="progress-fill"></span></div></div>
+            <strong id="progress-value" style="font-size:0.85rem; color:var(--accent); display:inline-block; margin-top:0.5rem;">0%</strong>
+        </div>
+    </div>
+
+    <div style="width:100%; max-width:440px; padding:2.5rem; background:#FFF; border-radius:var(--radius); border:1px solid var(--glass-border); box-shadow:var(--shadow);">
+        <div style="text-align:center; margin-bottom:2rem;">
+            <a href="./index.html" class="logo" style="justify-content:center; margin-bottom:1rem;">
+                <img src="./images/stackly_logo.webp" alt="Stackly Logo">
+                <span class="logo-text">STACKLY</span>
+            </a>
+            <h2>Foundry Portal Login</h2>
+            <p style="font-size:0.85rem; color:var(--muted-text); margin-top:0.3rem;">Sign in to access live fab telemetry & PDK packages.</p>
+        </div>
+
+        <form id="loginForm">
+            <div style="margin-bottom:1.2rem;">
+                <label style="font-size:0.85rem; color:var(--muted-text);">Your Full Name</label>
+                <input type="text" id="username" placeholder="Enter your full name" required style="width:100%; padding:0.8rem; border-radius:8px; border:1px solid var(--glass-border); background:var(--bg); color:var(--dark-text); margin-top:0.3rem; outline:none;">
+            </div>
+
+            <div style="margin-bottom:1.2rem;">
+                <label style="font-size:0.85rem; color:var(--muted-text);">Access Role</label>
+                <select id="userRole" style="width:100%; padding:0.8rem; border-radius:8px; border:1px solid var(--glass-border); background:var(--bg); color:var(--dark-text); margin-top:0.3rem; outline:none;">
+                    <option value="user">Client Engineer (User Dashboard)</option>
+                    <option value="admin">Foundry Administrator (Admin Dashboard)</option>
+                </select>
+            </div>
+
+            <div style="margin-bottom:1.5rem;">
+                <label style="font-size:0.85rem; color:var(--muted-text);">Password</label>
+                <input type="password" placeholder="Enter your password" required style="width:100%; padding:0.8rem; border-radius:8px; border:1px solid var(--glass-border); background:var(--bg); color:var(--dark-text); margin-top:0.3rem; outline:none;">
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;">Authenticate & Enter Portal <i class="fa-solid fa-right-to-bracket"></i></button>
+        </form>
+
+        <div style="text-align:center; margin-top:1.5rem; font-size:0.85rem; color:var(--muted-text);">
+            Don't have foundry credentials? <a href="./register.html" style="color:var(--accent); font-weight:700;">Register Access</a>
+        </div>
+        <div style="text-align:center; margin-top:1.5rem; font-size:0.8rem; color:var(--muted-text); border-top:1px solid var(--glass-border); padding-top:1rem;">
+            &copy; 2026 Stackly Semiconductor Manufacturing Inc. | <a href="./index.html" style="color:var(--accent);">Back to Home</a>
+        </div>
+    </div>
+
+    <script src="./js/script.js?v=5"></script>
+</body>
+</html>

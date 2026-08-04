@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly — Sub-2nm Semiconductor Infrastructure</title>
+    <meta name="description" content="Pioneering Sub-2nm Semiconductor Wafer Manufacturing, Smart Infrastructure & Microelectronics Enterprise Site.">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- RADAR SCANNER PAGE LOADER -->
+    <div id="loader">
+        <div class="loader-container">
+            <div class="radar">
+                <span class="ring ring1"></span>
+                <span class="ring ring2"></span>
+                <div class="core"><img src="./images/stackly_logo.webp" alt="Stackly Logo"></div>
+                <div class="scanner"></div>
+            </div>
+            <h2 style="letter-spacing: 0.1em;">STACKLY</h2>
+            <p style="font-size:0.8rem; color:var(--muted-text); margin-top:0.3rem;" id="loading-status">INITIALIZING FAB NETWORK...</p>
+            <div class="progress"><div class="progress-bar"><span id="progress-fill"></span></div></div>
+            <strong id="progress-value" style="font-size:0.85rem; color:var(--accent); display:inline-block; margin-top:0.5rem;">0%</strong>
+        </div>
+        <script>
+            (function() {
+                var count = 0;
+                var interval = setInterval(function() {
+                    count += 2;
+                    if (count > 100) count = 100;
+                    var fill = document.getElementById('progress-fill');
+                    var val = document.getElementById('progress-value');
+                    var status = document.getElementById('loading-status');
+                    if (fill) fill.style.width = count + '%';
+                    if (val) val.innerText = count + '%';
+                    if (count > 30 && count < 60 && status) status.innerText = "CONNECTING EUV SCANNERS...";
+                    if (count >= 60 && count < 90 && status) status.innerText = "CALIBRATING CLEANROOM...";
+                    if (count >= 90 && status) status.innerText = "STACKLY NETWORK READY!";
+                    if (count >= 100) {
+                        clearInterval(interval);
+                        var loader = document.getElementById('loader');
+                        if (loader) {
+                            setTimeout(function() {
+                                loader.classList.add('fade-out');
+                                setTimeout(function() { loader.style.display = 'none'; }, 500);
+                            }, 150);
+                        }
+                    }
+                }, 14);
+            })();
+        </script>
+    </div>
+
+    <!-- HEADER / NAVIGATION (CLEAN FIXED CONTAINER WITH INTEGRATED TELEMETRY BAR) -->
+    <header>
+        <!-- LIVE TELEMETRY TICKER BAR -->
+        <div class="telemetry-ticker">
+            <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                    <span class="telemetry-status-dot"></span> <strong>FAB 1 SANTA CLARA:</strong> 20.01°C • ISO Class 1 • EUV #04 Beam Active
+                </div>
+                <div style="display:none; @media(min-width:768px){display:block;}">
+                    <span class="telemetry-status-dot"></span> <strong>FAB 2 DRESDEN:</strong> 99.42% Yield • 300mm GAA Active
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <div class="container">
+                <a href="./index.html" class="logo">
+                    <img src="./images/stackly_logo.webp" alt="Stackly Logo">
+                    <span class="logo-text">STACKLY</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="./index.html" class="active">Home</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./services.html">Services</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </ul>
+
+                <div class="nav-right">
+                    <a href="./login.html" class="login-btn"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+                    <a href="./register.html" class="btn btn-primary" style="font-size:0.85rem; padding:0.55rem 1.2rem; text-decoration:none;"><i class="fa-solid fa-user-plus"></i> Register</a>
+                    <button class="menu-toggle" aria-label="Open Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MOBILE MENU DRAWER -->
+    <div class="mobile-overlay"></div>
+    <aside class="mobile-menu">
+        <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:2rem;">
+            <img src="./images/stackly_logo.webp" alt="Stackly Logo" style="width:36px; height:36px;">
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:1.3rem; font-weight:800;">STACKLY</span>
+        </div>
+        <ul>
+            <li><a href="./index.html"><i class="fa-solid fa-house"></i> <span>Home</span></a></li>
+            <li><a href="./about.html"><i class="fa-solid fa-building-circle-check"></i> <span>About</span></a></li>
+            <li><a href="./services.html"><i class="fa-solid fa-bolt"></i> <span>Services</span></a></li>
+            <li><a href="./blog.html"><i class="fa-solid fa-newspaper"></i> <span>Blog</span></a></li>
+            <li><a href="./contact.html"><i class="fa-solid fa-headset"></i> <span>Contact</span></a></li>
+            <li><a href="./login.html" style="color:var(--accent);"><i class="fa-solid fa-arrow-right-to-bracket"></i> <span>Portal Login</span></a></li>
+            <li><a href="./register.html" style="color:var(--accent); font-weight:700;"><i class="fa-solid fa-user-plus"></i> <span>Register Account</span></a></li>
+        </ul>
+    </aside>
+
+    <!-- SECTION 1: HERO SECTION (HIGH CONTRAST & SPACIOUS) -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="./images/hero_fab.webp" alt="Cleanroom Fab Infrastructure" class="hero-bg-img img-1">
+            <img src="./images/services_hero_euv.png" alt="High-NA EUV Lithography Scanner" class="hero-bg-img img-2">
+            <img src="./images/about_hq_facility.png" alt="Semiconductor Mega-Fab Headquarters" class="hero-bg-img img-3">
+            <div class="hero-laser-scanner"></div>
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="container">
+            <div class="hero-content" data-aos="fade-right">
+                <div class="hero-badge pulse-glow">
+                    <span></span> SUB-2NM SMART FOUNDRY PLATFORM
+                </div>
+
+                <h1 class="hero-title">
+                    Powering Tomorrow's <span class="gradient-text">Silicon Architecture</span>
+                </h1>
+
+                <div style="font-size:1.25rem; font-weight:700; color:#FFF; margin-bottom:1.4rem; display:flex; align-items:center; gap:0.6rem; background:rgba(255,255,255,0.05); padding:0.6rem 1.2rem; border-radius:var(--radius-full); width:fit-content; border:1px solid rgba(255,255,255,0.1);">
+                    <span style="color:#94A3B8; font-size:0.9rem;">TECH NODE:</span>
+                    <span class="typing-text" style="color:var(--accent);">Sub-2nm GAA Lithography</span>
+                </div>
+
+                <p class="hero-description">
+                    Delivering reliable microchips, 300mm silicon wafers, extreme ultraviolet lithography, and 3D heterogeneous packaging that power future-ready AI systems and sustainable tech ecosystems.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#" data-redirect="404" class="btn btn-primary">
+                        Explore Services <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#" data-redirect="404" class="btn btn-outline" style="background:rgba(255,255,255,0.1); color:#FFF; border-color:rgba(255,255,255,0.2);">
+                        Report Wafer Telemetry <i class="fa-solid fa-chart-line"></i>
+                    </a>
+                </div>
+
+                <div class="hero-mini-stats">
+                    <div>
+                        <div style="display:flex; align-items:center; gap:0.5rem;">
+                            <span class="radar-pulse-ring" style="width:10px; height:10px; background:var(--accent); border-radius:50%; display:inline-block;"></span>
+                            <h3>99.99%</h3>
+                        </div>
+                        <span>Wafer Yield Rate</span>
+                    </div>
+                    <div>
+                        <h3>Sub-2nm</h3>
+                        <span>Volume Process Node</span>
+                    </div>
+                    <div>
+                        <h3>24/7</h3>
+                        <span>EUV Fab Operations</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: 3D HOLOGRAPHIC FLOATING CHIP CARD -->
+            <div style="flex:1; min-width:300px; width:100%;" data-aos="fade-left">
+                <div class="spotlight-card float-anim hover-zoom-container glow-card-border" style="background:rgba(15,23,42,0.7); backdrop-filter:blur(20px); border:1px solid rgba(16,185,129,0.3); border-radius:var(--radius); padding:1.5rem; box-shadow:0 25px 50px rgba(0,0,0,0.4); position:relative;">
+                    
+                    <!-- TELEMETRY BADGE -->
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; font-size:0.8rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.8rem;">
+                        <span style="color:var(--accent); font-weight:700;"><i class="fa-solid fa-bolt"></i> HIGH-NA EUV #04</span>
+                        <span style="background:rgba(16,185,129,0.15); color:var(--accent); padding:0.2rem 0.6rem; border-radius:99px; font-weight:700; font-size:0.75rem;">● ACTIVE DISPATCH</span>
+                    </div>
+
+                    <!-- CHIP IMAGE -->
+                    <div style="position:relative; overflow:hidden; border-radius:12px; border:1px solid rgba(255,255,255,0.1);">
+                        <img src="./images/chip_closeup.webp" alt="Sub-2nm Microchip Architecture" class="hover-zoom-img" style="height:260px; width:100%; object-fit:cover;">
+                        <div style="position:absolute; bottom:12px; left:12px; background:rgba(15,23,42,0.85); backdrop-filter:blur(10px); padding:0.4rem 0.9rem; border-radius:8px; border:1px solid rgba(255,255,255,0.15); color:#FFF; font-size:0.78rem; font-weight:700;">
+                            <i class="fa-solid fa-layer-group" style="color:var(--accent);"></i> 3D Gate-All-Around Die
+                        </div>
+                    </div>
+
+                    <!-- CARD FOOTER METRICS -->
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-top:1.2rem; text-align:center; font-size:0.8rem;">
+                        <div style="background:rgba(255,255,255,0.04); padding:0.7rem; border-radius:10px; border:1px solid rgba(255,255,255,0.06);">
+                            <span style="color:#94A3B8; display:block;">Lithography Wavelength</span>
+                            <strong style="color:var(--secondary-blue); font-size:1rem;">13.5 nm EUV</strong>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.04); padding:0.7rem; border-radius:10px; border:1px solid rgba(255,255,255,0.06);">
+                            <span style="color:#94A3B8; display:block;">Interposer Pitch</span>
+                            <strong style="color:var(--accent); font-size:1rem;">0.4 µm Pitch</strong>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 2: INFINITE MARQUEE -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-item"><i class="fa-solid fa-microchip"></i> Gate-All-Around Transistors</div>
+            <div class="marquee-item"><i class="fa-solid fa-atom"></i> Extreme Ultraviolet Lithography</div>
+            <div class="marquee-item"><i class="fa-solid fa-cubes"></i> 3D Heterogeneous Packaging</div>
+            <div class="marquee-item"><i class="fa-solid fa-car-side"></i> Automotive Grade-0 Microchips</div>
+            <div class="marquee-item"><i class="fa-solid fa-brain"></i> AI Accelerator Nodes</div>
+            <div class="marquee-item"><i class="fa-solid fa-microchip"></i> Gate-All-Around Transistors</div>
+            <div class="marquee-item"><i class="fa-solid fa-atom"></i> Extreme Ultraviolet Lithography</div>
+            <div class="marquee-item"><i class="fa-solid fa-cubes"></i> 3D Heterogeneous Packaging</div>
+            <div class="marquee-item"><i class="fa-solid fa-car-side"></i> Automotive Grade-0 Microchips</div>
+            <div class="marquee-item"><i class="fa-solid fa-brain"></i> AI Accelerator Nodes</div>
+        </div>
+    </div>
+
+    <!-- SECTION 3: STEP-BY-STEP LITHOGRAPHY STEPPER -->
+    <section class="section">
+        <div class="container">
+            <div class="section-head text-center" data-aos="fade-up">
+                <div class="hero-badge"><span></span> Step-By-Step Lithography</div>
+                <h2>The Wafer Fabrication Process</h2>
+                <p>Click on any manufacturing step to inspect the underlying nanotechnology.</p>
+            </div>
+
+            <div class="stepper-container" data-aos="fade-up">
+                <button class="step-pill active" data-step="1">Step 1: Wafer Prep</button>
+                <button class="step-pill" data-step="2">Step 2: EUV Exposure</button>
+                <button class="step-pill" data-step="3">Step 3: Plasma Etch</button>
+                <button class="step-pill" data-step="4">Step 4: Ion Dopant</button>
+                <button class="step-pill" data-step="5">Step 5: Metallurgy</button>
+                <button class="step-pill" data-step="6">Step 6: 3D Dicing</button>
+            </div>
+
+            <div class="step-display-card spotlight-card" data-aos="zoom-in">
+                <div style="flex:1; min-width:280px;">
+                    <img id="stepImg" src="./images/silicon_wafer.webp" alt="Step Image" style="border-radius:var(--radius); height:260px; width:100%; object-fit:cover;">
+                </div>
+                <div style="flex:1; min-width:280px;">
+                    <h3 id="stepTitle" class="gradient-text" style="font-size:1.8rem;">Step 1: Silicon Substrate Preparation</h3>
+                    <p id="stepDesc" style="margin-top:1rem; color:var(--muted-text); font-size:1.05rem;">Hyper-pure 300mm monocrystalline silicon ingot slicing and chemical-mechanical polishing (CMP) to achieve sub-nanometer surface roughness.</p>
+                    <a href="#" data-redirect="404" class="btn btn-outline btn-404" style="margin-top:1.5rem; font-size:0.85rem;">View Fab Camera Feed <i class="fa-solid fa-video"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: LIVE FAB CAMERA STREAM MOCK WIDGET -->
+    <section class="section" style="background:var(--bg-secondary);">
+        <div class="container">
+            <div class="section-head text-center" data-aos="fade-up">
+                <div class="hero-badge"><span></span> Live Cleanroom Stream</div>
+                <h2>Real-Time FOUP Transport Telemetry</h2>
+            </div>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1.8rem;">
+                <div class="cam-card" data-aos="zoom-in">
+                    <div class="cam-header">
+                        <span><span class="telemetry-status-dot"></span> LIVE • CAM 01 (FAB 1 CLEANROOM)</span>
+                        <span style="color:var(--accent);">60 FPS • 4K</span>
+                    </div>
+                    <div class="cam-body">
+                        <img src="./images/cleanroom_workers.webp" alt="Cam 01" style="width:100%; height:100%; object-fit:cover;">
+                        <div class="cam-overlay-text">POD #STK-8092 • OVERHEAD TRACK: NOMINAL</div>
+                    </div>
+                </div>
+
+                <div class="cam-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="cam-header">
+                        <span><span class="telemetry-status-dot"></span> LIVE • CAM 02 (EUV SCANNER BAY)</span>
+                        <span style="color:var(--accent);">60 FPS • 4K</span>
+                    </div>
+                    <div class="cam-body">
+                        <img src="./images/photolithography.webp" alt="Cam 02" style="width:100%; height:100%; object-fit:cover;">
+                        <div class="cam-overlay-text">SCANNER #05 • LASER POWER: 620W</div>
+                    </div>
+                </div>
+
+                <div class="cam-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="cam-header">
+                        <span><span class="telemetry-status-dot"></span> LIVE • CAM 03 (ROBOTIC METROLOGY BAY)</span>
+                        <span style="color:var(--accent);">60 FPS • 4K</span>
+                    </div>
+                    <div class="cam-body">
+                        <img src="./images/cleanroom_robotics.png" alt="Cam 03" style="width:100%; height:100%; object-fit:cover;">
+                        <div class="cam-overlay-text">ROBOT #ROB-4021 • SUB-NM ALIGNMENT: NOMINAL</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: INTERACTIVE WAFER YIELD CALCULATOR -->
+    <section class="section">
+        <div class="container">
+            <div class="section-head text-center" data-aos="fade-up">
+                <div class="hero-badge"><span></span> Interactive Tool</div>
+                <h2>Wafer Production & Yield Estimator</h2>
+            </div>
+
+            <div class="calc-card spotlight-card" data-aos="zoom-in">
+                <div class="calc-slider-group">
+                    <div class="calc-slider-header">
+                        <span>Die Size (Area):</span>
+                        <span id="dieSizeVal" style="color:var(--accent);">150 mm²</span>
+                    </div>
+                    <input type="range" id="dieSizeSlider" min="50" max="600" value="150" class="calc-slider">
+                </div>
+
+                <div class="calc-slider-group">
+                    <div class="calc-slider-header">
+                        <span>Target Monthly Volume:</span>
+                        <span id="waferVolVal" style="color:var(--accent);">500 Wafers/Mo</span>
+                    </div>
+                    <input type="range" id="waferVolSlider" min="50" max="2500" value="500" step="50" class="calc-slider">
+                </div>
+
+                <div class="calc-results">
+                    <div class="calc-res-item">
+                        <span style="font-size:0.85rem; color:var(--muted-text);">Estimated Good Dies/Mo</span>
+                        <div class="calc-res-val" id="resTotalDies">184,500</div>
+                    </div>
+                    <div class="calc-res-item">
+                        <span style="font-size:0.85rem; color:var(--muted-text);">Estimated Yield Rate</span>
+                        <div class="calc-res-val" id="resYieldRate">94.2%</div>
+                    </div>
+                    <div class="calc-res-item">
+                        <span style="font-size:0.85rem; color:var(--muted-text);">Est. Production Cost / Die</span>
+                        <div class="calc-res-val" id="resCostDie">$38.50</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: TABBED PROCESS NODE COMPARISON MATRIX -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-head text-center" data-aos="fade-up">
+                <div class="hero-badge"><span></span> Technology Matrix</div>
+                <h2>Compare Node Architectures</h2>
+            </div>
+
+            <div class="tab-buttons" data-aos="fade-up">
+                <button class="tab-btn active" data-tab="tab-n2">N2 (2nm GAA)</button>
+                <button class="tab-btn" data-tab="tab-n3">N3E (3nm FinFET)</button>
+                <button class="tab-btn" data-tab="tab-n7">N7RF (7nm GaN)</button>
+            </div>
+
+            <div id="tab-n2" class="tab-content active">
+                <div class="bento-grid">
+                    <div class="bento-card spotlight-card">
+                        <i class="fa-solid fa-bolt" style="font-size:2rem; color:var(--accent); margin-bottom:1rem;"></i>
+                        <h4>35% Power Reduction</h4>
+                        <p style="color:var(--muted-text); font-size:0.9rem; margin-top:0.5rem;">Operating at 0.65V supply voltage for LLM training chips.</p>
+                    </div>
+                    <div class="bento-card spotlight-card">
+                        <i class="fa-solid fa-gauge-high" style="font-size:2rem; color:var(--accent); margin-bottom:1rem;"></i>
+                        <h4>20% Clock Gain</h4>
+                        <p style="color:var(--muted-text); font-size:0.9rem; margin-top:0.5rem;">Frequences exceeding 4.8 GHz under sub-ambient liquid cooling.</p>
+                    </div>
+                    <div class="bento-card spotlight-card">
+                        <i class="fa-solid fa-layer-group" style="font-size:2rem; color:var(--accent); margin-bottom:1rem;"></i>
+                        <h4>300B Transistors/Die</h4>
+                        <p style="color:var(--muted-text); font-size:0.9rem; margin-top:0.5rem;">Sub-micron gate pitch with 4-level nanosheet stacking.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-n3" class="tab-content">
+                <div class="bento-grid">
+                    <div class="bento-card spotlight-card">
+                        <i class="fa-solid fa-shield-halved" style="font-size:2rem; color:var(--accent); margin-bottom:1rem;"></i>
+                        <h4>Grade-0 Automotive</h4>
+                        <p style="color:var(--muted-text); font-size:0.9rem; margin-top:0.5rem;">150°C junction temperature tolerance for autonomous drive CPUs.</p>
+                    </div>
+                    <div class="bento-card spotlight-card">
+                        <i class="fa-solid fa-mobile-screen-button" style="font-size:2rem; color:var(--accent); margin-bottom:1rem;"></i>
+                        <h4>Mobile SoC Optimized</h4>
+                        <p style="color:var(--muted-text); font-size:0.9rem; margin-top:0.5rem;">Ultra-low standby current for flagship smartphone processors.</p>
+                    </div>
+                    <div class="bento-card spotlight-card">
+                        <i class="fa-solid fa-chart-line" style="font-size:2rem; color:var(--accent); margin-bottom:1rem;"></i>
+                        <h4>High Volume Maturity</h4>
+                        <p style="color:var(--muted-text); font-size:0.9rem; margin-top:0.5rem;">Proven 99.8% wafer defect-free yield across 500,000 runs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-n7" class="tab-content">
+                <div class="bento-grid">
+                    <div class="bento-card spotlight-card">
+                        <i class="fa-solid fa-tower-cell" style="font-size:2rem; color:var(--secondary-blue); margin-bottom:1rem;"></i>
+                        <h4>6G Sub-THz Support</h4>
+                        <p style="color:var(--muted-text); font-size:0.9rem; margin-top:0.5rem;">High power efficiency for satellite array transceivers.</p>
+                    </div>
+                    <div class="bento-card spotlight-card">
+                        <i class="fa-solid fa-plug-circle-bolt" style="font-size:2rem; color:var(--secondary-blue); margin-bottom:1rem;"></i>
+                        <h4>GaN-on-Silicon Power</h4>
+                        <p style="color:var(--muted-text); font-size:0.9rem; margin-top:0.5rem;">1200V breakdown voltage for electric vehicle converters.</p>
+                    </div>
+                    <div class="bento-card spotlight-card">
+                        <i class="fa-solid fa-wifi" style="font-size:2rem; color:var(--secondary-blue); margin-bottom:1rem;"></i>
+                        <h4>Ultra-Low Noise Figure</h4>
+                        <p style="color:var(--muted-text); font-size:0.9rem; margin-top:0.5rem;">Sub-0.5dB noise amplifiers for radar front-ends.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: BENTO GRID SERVICES -->
+    <section class="section">
+        <div class="container">
+            <div class="section-head text-center" data-aos="fade-up">
+                <div class="hero-badge"><span></span> Core Capabilities</div>
+                <h2>Smart Foundry Infrastructure</h2>
+            </div>
+
+            <div class="bento-grid">
+                <div class="bento-card col-span-2 spotlight-card" data-aos="zoom-in">
+                    <img src="./images/chip_closeup.webp" alt="Advanced Microchip" style="width:100%; height:200px; border-radius:var(--radius); margin-bottom:1.5rem; object-fit:cover;">
+                    <div class="hero-badge" style="margin-bottom:0.8rem;">Flagship Node</div>
+                    <h3>Sub-2nm GAA Logic Architecture</h3>
+                    <p style="margin-top:0.5rem; color:var(--muted-text);">Mass volume production offering 35% higher power efficiency and 20% performance scaling for generative AI accelerators.</p>
+                    <a href="#" data-redirect="404" class="btn btn-outline btn-404" style="margin-top:1.5rem; font-size:0.85rem; padding:0.6rem 1.4rem;">Read Specifications <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="bento-card spotlight-card" data-aos="fade-left">
+                    <img src="./images/silicon_wafer.webp" alt="300mm Silicon Wafer" style="width:100%; height:200px; border-radius:var(--radius); margin-bottom:1.5rem; object-fit:cover;">
+                    <div class="hero-badge" style="margin-bottom:0.8rem;">Epitaxial Grade</div>
+                    <h3>300mm Silicon Wafers</h3>
+                    <p style="color:var(--muted-text); font-size:0.9rem; margin-top:0.5rem;">Atomic-level lattice purity across zero-defect epitaxial layers engineered for extreme yield stability.</p>
+                    <a href="#" data-redirect="404" class="btn btn-outline btn-404" style="margin-top:1.5rem; font-size:0.85rem; padding:0.6rem 1.4rem;">Wafer Specs <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: HOVER BADGE CLOUD -->
+    <section class="section" style="background:var(--bg-secondary);">
+        <div class="container text-center">
+            <div class="section-head text-center" data-aos="fade-up">
+                <div class="hero-badge"><span></span> Tech Ecosystem</div>
+                <h2>Supported Standards & Protocols</h2>
+            </div>
+
+            <div class="badge-cloud" data-aos="zoom-in">
+                <div class="badge-item"><i class="fa-solid fa-atom" style="color:var(--accent);"></i> 0.55 High-NA EUV</div>
+                <div class="badge-item"><i class="fa-solid fa-cubes" style="color:var(--accent);"></i> UCIe 2.0 Chiplets</div>
+                <div class="badge-item"><i class="fa-solid fa-microchip" style="color:var(--accent);"></i> Gate-All-Around (GAA)</div>
+                <div class="badge-item"><i class="fa-solid fa-car-side" style="color:var(--accent);"></i> AEC-Q100 Grade 0</div>
+                <div class="badge-item"><i class="fa-solid fa-network-wired" style="color:var(--accent);"></i> 800G Silicon Photonics</div>
+                <div class="badge-item"><i class="fa-solid fa-shield-halved" style="color:var(--accent);"></i> ISO 26262 ASIL-D</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: TIMELINE SECTION -->
+    <section class="section">
+        <div class="container">
+            <div class="section-head text-center" data-aos="fade-up">
+                <div class="hero-badge"><span></span> Milestones</div>
+                <h2>Decades of Precision Engineering</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span style="color:var(--accent); font-weight:800; font-size:1.1rem;">2018</span>
+                        <h4 style="margin-top:0.3rem;">Fab 1 Commissioned</h4>
+                        <p style="font-size:0.9rem; color:var(--muted-text); margin-top:0.3rem;">First 12nm wafer cleanroom operational in Silicon Valley.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span style="color:var(--accent); font-weight:800; font-size:1.1rem;">2022</span>
+                        <h4 style="margin-top:0.3rem;">High-NA EUV Integration</h4>
+                        <p style="font-size:0.9rem; color:var(--muted-text); margin-top:0.3rem;">Deployed 0.55 High-NA extreme ultraviolet scanner systems.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span style="color:var(--accent); font-weight:800; font-size:1.1rem;">2026</span>
+                        <h4 style="margin-top:0.3rem;">Sub-2nm GAA Mass Volume</h4>
+                        <p style="font-size:0.9rem; color:var(--muted-text); margin-top:0.3rem;">Achieved 99.4% yield across ultra-dense AI hardware dies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: HORIZONTAL SCROLL CLEANROOM GALLERY -->
+    <section class="section" style="background:var(--bg-secondary);">
+        <div class="container">
+            <div class="section-head" data-aos="fade-up">
+                <div class="hero-badge"><span></span> Cleanroom Facilities</div>
+                <h2>ISO Class-1 Infrastructure</h2>
+            </div>
+
+            <div class="horizontal-scroll-container">
+                <div class="horizontal-card">
+                    <img src="./images/photolithography.webp" alt="EUV Lithography Machine" style="height:190px;">
+                    <div style="padding:1.5rem;">
+                        <h4>0.55 High-NA EUV Scanner</h4>
+                        <p style="font-size:0.85rem; color:var(--muted-text); margin-top:0.5rem;">8nm pattern transfers using anamorphic mirror optics.</p>
+                    </div>
+                </div>
+
+                <div class="horizontal-card">
+                    <img src="./images/cleanroom_workers.webp" alt="Cleanroom Operations" style="height:190px;">
+                    <div style="padding:1.5rem;">
+                        <h4>Automated FOUP Transport</h4>
+                        <p style="font-size:0.85rem; color:var(--muted-text); margin-top:0.5rem;">Robotic overhead monorail transporting wafer pods seamlessly.</p>
+                    </div>
+                </div>
+
+                <div class="horizontal-card">
+                    <img src="./images/silicon_wafer.webp" alt="Wafer Metrology" style="height:190px;">
+                    <div style="padding:1.5rem;">
+                        <h4>Atomic X-Ray Metrology</h4>
+                        <p style="font-size:0.85rem; color:var(--muted-text); margin-top:0.5rem;">In-line real-time structural inspection & defect detection.</p>
+                    </div>
+                </div>
+
+                <div class="horizontal-card">
+                    <img src="./images/cleanroom_robotics.png" alt="Robotic Wafer Inspection" style="height:190px;">
+                    <div style="padding:1.5rem;">
+                        <h4>Autonomous Robotic Handler</h4>
+                        <p style="font-size:0.85rem; color:var(--muted-text); margin-top:0.5rem;">Sub-nanometer real-time laser wafer scanning & defect prevention.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 11: STICKY TECH SPECS -->
+    <section class="section">
+        <div class="container" style="display: flex; gap: 3rem; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px; position: sticky; top: 120px; align-self: flex-start;">
+                <div class="hero-badge"><span></span> Unmatched Metrics</div>
+                <h2>Sub-Nanometer Standards</h2>
+                <p style="margin-top: 1rem; color:var(--muted-text);">Stackly sets the benchmark for low-leakage power, thermal dissipation, and transistor density.</p>
+            </div>
+
+            <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 1.5rem;">
+                <div class="bento-card spotlight-card">
+                    <h3 class="gradient-text">300 Billion Transistors</h3>
+                    <p style="margin-top: 0.5rem; color:var(--muted-text);">Integrated into a single monolithic die via 3D bumpless stacking.</p>
+                </div>
+                <div class="bento-card spotlight-card">
+                    <h3 class="gradient-text">&lt; 0.001 Defect Density</h3>
+                    <p style="margin-top: 0.5rem; color:var(--muted-text);">Particles per square meter under ISO Class-1 positive pressure airflow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 12: FLIP CARDS TESTIMONIALS -->
+    <section class="section" style="background:var(--bg-secondary);">
+        <div class="container">
+            <div class="section-head text-center" data-aos="fade-up">
+                <div class="hero-badge"><span></span> Industry Trust</div>
+                <h2>Verified Partner Feedback</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="./images/team_ceo.webp" alt="Client CEO" style="width:75px; height:75px; border-radius:50%; margin-bottom:1rem;">
+                            <h4>Apex Systems</h4>
+                            <p style="font-size:0.85rem; color:var(--accent); font-weight:600;">HPC AI Accelerators</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p style="font-style:italic; font-size:0.95rem;">"Stackly's sub-2nm yield allowed us to ship our flagship AI processors 3 months ahead of market schedule."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="./images/team_cto.webp" alt="Client CTO" style="width:75px; height:75px; border-radius:50%; margin-bottom:1rem;">
+                            <h4>AeroDrive Mobility</h4>
+                            <p style="font-size:0.85rem; color:var(--accent); font-weight:600;">Automotive Microchips</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p style="font-style:italic; font-size:0.95rem;">"Zero defect tolerance is critical for self-driving vehicles. Stackly's Grade-0 wafers are completely unmatched."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 14: GLOBAL SEMICONDUCTOR FOUNDRY NETWORK -->
+    <section class="section" style="background:var(--bg-secondary);">
+        <div class="container">
+            <div class="section-head text-center" data-aos="fade-up">
+                <div class="hero-badge pulse-glow"><span></span> Global Footprint</div>
+                <h2>Autonomous Fab Network & Capacity</h2>
+                <p style="max-width:700px; margin:1rem auto; color:var(--muted-text);">Operating ISO Class-1 ultra-clean facilities across North America, Europe, and Asia-Pacific.</p>
+            </div>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(310px, 1fr)); gap:2rem;">
+                <div class="bento-card spotlight-card hover-zoom-container" data-aos="zoom-in">
+                    <img src="./images/cleanroom_wafer_testing.png" alt="Santa Clara Fab 1" class="hover-zoom-img" style="height:200px;">
+                    <div style="padding:1.5rem;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem;">
+                            <span class="hero-badge" style="margin:0;">Fab 1 • USA</span>
+                            <span style="color:var(--accent); font-weight:700; font-size:0.8rem;">● 99.4% Yield</span>
+                        </div>
+                        <h3>Santa Clara Mega-Foundry</h3>
+                        <p style="font-size:0.88rem; color:var(--muted-text); margin-top:0.5rem;">0.55 High-NA EUV lithography dedicated to Sub-2nm GAA logic architectures and generative AI hardware acceleration.</p>
+                    </div>
+                </div>
+
+                <div class="bento-card spotlight-card hover-zoom-container" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="./images/photolithography.webp" alt="Dresden Fab 2" class="hover-zoom-img" style="height:200px;">
+                    <div style="padding:1.5rem;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem;">
+                            <span class="hero-badge" style="margin:0;">Fab 2 • Germany</span>
+                            <span style="color:var(--secondary-blue); font-weight:700; font-size:0.8rem;">● 99.2% Yield</span>
+                        </div>
+                        <h3>Dresden Epitaxial Center</h3>
+                        <p style="font-size:0.88rem; color:var(--muted-text); margin-top:0.5rem;">High-purity 300mm silicon ingot crystal growth, chemical-mechanical polishing (CMP), and automotive Grade-0 wafers.</p>
+                    </div>
+                </div>
+
+                <div class="bento-card spotlight-card hover-zoom-container" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="./images/3d_chiplet_packaging.png" alt="Hsinchu Fab 3" class="hover-zoom-img" style="height:200px;">
+                    <div style="padding:1.5rem;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem;">
+                            <span class="hero-badge" style="margin:0;">Fab 3 • Taiwan</span>
+                            <span style="color:var(--accent); font-weight:700; font-size:0.8rem;">● 99.6% Yield</span>
+                        </div>
+                        <h3>Hsinchu 3D Interposer Hub</h3>
+                        <p style="font-size:0.88rem; color:var(--muted-text); margin-top:0.5rem;">3D bumpless interposer stacking, UCIe 2.0 chiplet integration, and sub-micron laser dicing packaging.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 15: 3D HETEROGENEOUS CHIPLET SHOWCASE -->
+    <section class="section">
+        <div class="container">
+            <div style="display:flex; align-items:center; gap:3rem; flex-wrap:wrap;">
+                <div style="flex:1; min-width:300px;" data-aos="fade-right">
+                    <div class="hero-badge"><span></span> Advanced Packaging</div>
+                    <h2>3D Heterogeneous Chiplet Integration</h2>
+                    <p style="margin-top:1rem; color:var(--muted-text); font-size:1.05rem;">Bypassing monolithic silicon area constraints with sub-micron 3D bumpless interposers for direct die-to-die communication.</p>
+
+                    <div style="margin-top:1.5rem; display:flex; flex-direction:column; gap:1rem;">
+                        <div style="display:flex; gap:1rem; align-items:flex-start;">
+                            <i class="fa-solid fa-cubes" style="color:var(--accent); font-size:1.4rem; margin-top:0.2rem;"></i>
+                            <div>
+                                <h4 style="font-size:1rem;">Sub-Micron Interconnect Density</h4>
+                                <p style="font-size:0.85rem; color:var(--muted-text);">Achieves 100x interconnect density compared to standard micro-bumps.</p>
+                            </div>
+                        </div>
+                        <div style="display:flex; gap:1rem; align-items:flex-start;">
+                            <i class="fa-solid fa-bolt" style="color:var(--accent); font-size:1.4rem; margin-top:0.2rem;"></i>
+                            <div>
+                                <h4 style="font-size:1rem;">HBM3e Memory Stacking</h4>
+                                <p style="font-size:0.85rem; color:var(--muted-text);">Direct vertical stacking supporting up to 1.2 TB/s memory bandwidth per die.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" data-redirect="404" class="btn btn-primary btn-404" style="margin-top:2rem; font-size:0.85rem; padding:0.7rem 1.6rem;">Explore Packaging Whitepaper <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div style="flex:1; min-width:300px;" data-aos="fade-left" class="hover-zoom-container float-anim">
+                    <img src="./images/3d_chiplet_packaging.png" alt="3D Chiplet Architecture" class="hover-zoom-img" style="border-radius:var(--radius); border:1px solid var(--glass-border); box-shadow:var(--shadow); max-height:400px; width:100%;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 16: FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="./index.html" class="logo" style="margin-bottom:1rem;">
+                        <img src="./images/stackly_logo.webp" alt="Stackly Logo">
+                        <span class="logo-text" style="color:#FFF;">STACKLY</span>
+                    </a>
+                    <p style="font-size:0.9rem; max-width:300px; margin-top:1rem;">Global leader in extreme ultraviolet silicon wafer fabrication and 3D heterogeneous packaging.</p>
+                    <div class="social-links">
+                        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow Stackly on X"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow Stackly on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Subscribe to Stackly YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 style="color:#FFF; margin-bottom:1.2rem;">Quick Navigation</h4>
+                    <ul style="display:flex; flex-direction:column; gap:0.6rem; font-size:0.9rem;">
+                        <li><a href="./index.html" style="color:#94A3B8;">Home</a></li>
+                        <li><a href="./about.html" style="color:#94A3B8;">About Stackly</a></li>
+                        <li><a href="./services.html" style="color:#94A3B8;">Foundry Services</a></li>
+                        <li><a href="./blog.html" style="color:#94A3B8;">Tech Journal</a></li>
+                        <li><a href="./contact.html" style="color:#94A3B8;">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="color:#FFF; margin-bottom:1.2rem;">Foundry Services</h4>
+                    <ul style="display:flex; flex-direction:column; gap:0.6rem; font-size:0.9rem;">
+                        <li><a href="#" data-redirect="404" class="btn-404" style="color:#94A3B8;">Logic Wafers</a></li>
+                        <li><a href="#" data-redirect="404" class="btn-404" style="color:#94A3B8;">3D Packaging</a></li>
+                        <li><a href="#" data-redirect="404" class="btn-404" style="color:#94A3B8;">EUV Photomasks</a></li>
+                        <li><a href="#" data-redirect="404" class="btn-404" style="color:#94A3B8;">Silicon Photonics</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="color:#FFF; margin-bottom:1.2rem;">Portal Login</h4>
+                    <p style="font-size:0.85rem; margin-bottom:1rem;">Access client telemetry & order status.</p>
+                    <a href="./login.html" class="btn btn-primary" style="width:100%; font-size:0.85rem;">Client Login <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div style="text-align:center; border-top:1px solid rgba(255,255,255,0.08); padding-top:2rem; font-size:0.85rem; color:#64748B;">
+                &copy; 2026 Stackly Semiconductor Manufacturing Inc. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/script.js?v=6"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>

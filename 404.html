@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Signal Misalignment | Stackly</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body style="display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; text-align:center; padding:2rem;">
+    <!-- RADAR LOADER -->
+    <div id="loader">
+        <div class="loader-container">
+            <div class="radar">
+                <span class="ring ring1"></span>
+                <span class="ring ring2"></span>
+                <div class="core"><img src="./images/stackly_logo.webp" alt="Stackly Logo"></div>
+                <div class="scanner"></div>
+            </div>
+            <h2>STACKLY</h2>
+            <p style="font-size:0.8rem; color:var(--muted-text); margin-top:0.3rem;" id="loading-status">SCANNING SILICON BUS...</p>
+            <div class="progress"><div class="progress-bar"><span id="progress-fill"></span></div></div>
+            <strong id="progress-value" style="font-size:0.85rem; color:var(--accent); display:inline-block; margin-top:0.5rem;">0%</strong>
+        </div>
+    </div>
+
+    <div class="hero-badge" style="background:rgba(239,68,68,0.1); color:#EF4444; border-color:rgba(239,68,68,0.3);">
+        <span></span> <i class="fa-solid fa-triangle-exclamation"></i> ERROR 404
+    </div>
+    <h1 style="font-size: 6rem; line-height: 1;" class="gradient-text">404</h1>
+    <h2 style="margin-top:0.5rem;">Nanometer Misalignment Detected</h2>
+    <p style="max-width: 500px; color:var(--muted-text); margin: 1rem auto 2.5rem;">The path or page resource you requested has been moved, de-lithographed, or does not exist in our silicon foundry registry.</p>
+    
+    <div style="display: flex; gap: 1rem; flex-wrap:wrap; justify-content:center;">
+        <a href="./index.html" class="btn btn-primary"><i class="fa-solid fa-house"></i> Return to Foundry Core</a>
+        <a href="./contact.html" class="btn btn-outline"><i class="fa-solid fa-headset"></i> Report Issue</a>
+    </div>
+
+    <script src="./js/script.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Solutions — Stackly</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- RADAR SCANNER PAGE LOADER -->
+    <div id="loader">
+        <div class="loader-container">
+            <div class="radar">
+                <span class="ring ring1"></span>
+                <span class="ring ring2"></span>
+                <div class="core"><img src="./images/stackly_logo.webp" alt="Stackly Logo"></div>
+                <div class="scanner"></div>
+            </div>
+            <h2>STACKLY</h2>
+            <p style="font-size:0.8rem; color:var(--muted-text); margin-top:0.3rem;" id="loading-status">INITIALIZING FOUNDRY SERVICES...</p>
+            <div class="progress"><div class="progress-bar"><span id="progress-fill"></span></div></div>
+            <strong id="progress-value" style="font-size:0.85rem; color:var(--accent); display:inline-block; margin-top:0.5rem;">0%</strong>
+        </div>
+        <script>
+            (function() {
+                var count = 0;
+                var interval = setInterval(function() {
+                    count += 2;
+                    if (count > 100) count = 100;
+                    var fill = document.getElementById('progress-fill');
+                    var val = document.getElementById('progress-value');
+                    var status = document.getElementById('loading-status');
+                    if (fill) fill.style.width = count + '%';
+                    if (val) val.innerText = count + '%';
+                    if (count > 30 && count < 60 && status) status.innerText = "LOADING PROCESS DECKS...";
+                    if (count >= 60 && count < 90 && status) status.innerText = "CALIBRATING METROLOGY...";
+                    if (count >= 90 && status) status.innerText = "SERVICES READY!";
+                    if (count >= 100) {
+                        clearInterval(interval);
+                        var loader = document.getElementById('loader');
+                        if (loader) {
+                            setTimeout(function() {
+                                loader.classList.add('fade-out');
+                                setTimeout(function() { loader.style.display = 'none'; }, 500);
+                            }, 150);
+                        }
+                    }
+                }, 14);
+            })();
+        </script>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="./index.html" class="logo">
+                    <img src="./images/stackly_logo.webp" alt="Stackly Logo">
+                    <span class="logo-text">STACKLY</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./services.html" class="active">Services</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-right">
+                    <a href="./login.html" class="login-btn"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+                    <a href="./register.html" class="btn btn-primary" style="font-size:0.85rem; padding:0.55rem 1.2rem; text-decoration:none;"><i class="fa-solid fa-user-plus"></i> Register</a>
+                    <button class="menu-toggle" aria-label="Open Menu"><span></span><span></span><span></span></button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY & DRAWER -->
+    <div class="mobile-overlay"></div>
+    <aside class="mobile-menu">
+        <ul>
+            <li><a href="./index.html"><i class="fa-solid fa-house"></i> <span>Home</span></a></li>
+            <li><a href="./about.html"><i class="fa-solid fa-building-circle-check"></i> <span>About</span></a></li>
+            <li><a href="./services.html"><i class="fa-solid fa-bolt"></i> <span>Services</span></a></li>
+            <li><a href="./blog.html"><i class="fa-solid fa-newspaper"></i> <span>Blog</span></a></li>
+            <li><a href="./contact.html"><i class="fa-solid fa-headset"></i> <span>Contact</span></a></li>
+            <li><a href="./login.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> <span>Login</span></a></li>
+            <li><a href="./register.html" style="color:var(--accent); font-weight:700;"><i class="fa-solid fa-user-plus"></i> <span>Register</span></a></li>
+        </ul>
+    </aside>
+
+    <!-- SECTION 1: HERO -->
+    <section class="section" style="padding-top: 10rem; background: radial-gradient(circle at 50% 30%, rgba(14,165,233,0.1), transparent 70%);">
+        <div class="container text-center" data-aos="fade-up">
+            <div class="hero-badge pulse-glow"><span></span> Foundry Solutions</div>
+            <h1 class="gradient-text">Full-Spec Silicon Manufacturing Services</h1>
+            <p style="max-width: 700px; margin: 1.5rem auto; color:var(--muted-text);">From initial GDSII tape-out to high-volume EUV lithography and 3D heterogeneous packaging.</p>
+        </div>
+        <div class="container" style="margin-top:2.5rem;" data-aos="zoom-in" class="hover-zoom-container float-anim">
+            <img src="./images/services_hero_euv.png" alt="EUV Lithography Scanner" class="hover-zoom-img" style="border-radius:var(--radius); border:1px solid var(--glass-border); box-shadow:var(--shadow); max-height:420px; width:100%; object-fit:cover;">
+        </div>
+    </section>
+
+    <!-- SECTION 2: EXPANDABLE CARDS CORE OFFERINGS -->
+    <section class="section">
+        <div class="container" style="max-width: 900px;">
+            <div class="section-head text-center" data-aos="fade-up">
+                <div class="hero-badge"><span></span> Interactive Specs</div>
+                <h2>Explore Core Foundry Offerings</h2>
+                <p>Click on any service card below to expand specifications.</p>
+            </div>
+
+            <div class="expandable-card active" data-aos="fade-up">
+                <div class="expandable-header">
+                    <h3><i class="fa-solid fa-bolt"></i> Sub-2nm GAA Logic Wafer Fabrication</h3>
+                    <span class="expandable-icon">+</span>
+                </div>
+                <div class="expandable-content">
+                    <p style="color:var(--muted-text);">Mass production using nanosheet field-effect transistors. Reduces leakage current by 45% while driving extreme clock frequency scaling for next-gen generative AI hardware acceleration.</p>
+                    <a href="#" data-redirect="404" class="btn btn-outline btn-404" style="margin-top: 1rem; font-size:0.85rem; padding:0.5rem 1.2rem;">Request PDK Documentation <i class="fa-solid fa-file-code"></i></a>
+                </div>
+            </div>
+
+            <div class="expandable-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="expandable-header">
+                    <h3><i class="fa-solid fa-cubes"></i> 3D Heterogeneous Packaging & Chiplets</h3>
+                    <span class="expandable-icon">+</span>
+                </div>
+                <div class="expandable-content">
+                    <p style="color:var(--muted-text);">Stackly 3D-Bumpless interposer technology allows ultra-high density die-to-die interconnects with sub-micron pitch spacing for HBM3e memory integration.</p>
+                    <a href="#" data-redirect="404" class="btn btn-outline btn-404" style="margin-top: 1rem; font-size:0.85rem; padding:0.5rem 1.2rem;">Learn More &rarr;</a>
+                </div>
+            </div>
+
+            <div class="expandable-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="expandable-header">
+                    <h3><i class="fa-solid fa-atom"></i> Extreme Ultraviolet (EUV) Mask Shop</h3>
+                    <span class="expandable-icon">+</span>
+                </div>
+                <div class="expandable-content">
+                    <p style="color:var(--muted-text);">In-house photomask synthesis utilizing reflective multi-layer Mo/Si coatings and electron-beam direct write mask inspection system.</p>
+                    <a href="#" data-redirect="404" class="btn btn-outline btn-404" style="margin-top: 1rem; font-size:0.85rem; padding:0.5rem 1.2rem;">Learn More &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: FLOATING CAPABILITY MATRIX -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-head text-center" data-aos="fade-up">
+                <div class="hero-badge"><span></span> Technology Nodes</div>
+                <h2>Process Node Matrix</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.8rem;">
+                <div class="bento-card spotlight-card" data-aos="zoom-in">
+                    <span style="color:var(--accent); font-weight:800; font-size:1.1rem;">N2 (2nm GAA)</span>
+                    <h4 style="margin-top:0.5rem;">High Performance Computing</h4>
+                    <p style="font-size:0.85rem; margin-top:0.5rem; color:var(--muted-text);">Vdd: 0.65V • Max Frequency &gt; 4.8 GHz</p>
+                </div>
+                <div class="bento-card spotlight-card" data-aos="zoom-in" data-aos-delay="100">
+                    <span style="color:var(--accent); font-weight:800; font-size:1.1rem;">N3E (3nm FinFET)</span>
+                    <h4 style="margin-top:0.5rem;">Mobile & Automotive</h4>
+                    <p style="font-size:0.85rem; margin-top:0.5rem; color:var(--muted-text);">AEC-Q100 Grade 0 Certified</p>
+                </div>
+                <div class="bento-card spotlight-card" data-aos="zoom-in" data-aos-delay="200">
+                    <span style="color:var(--accent); font-weight:800; font-size:1.1rem;">N7RF (7nm GaN/Si)</span>
+                    <h4 style="margin-top:0.5rem;">5G/6G Base Stations</h4>
+                    <p style="font-size:0.85rem; margin-top:0.5rem; color:var(--muted-text);">High Power Density RF Switches</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: PROCESS WORKFLOW -->
+    <section class="section">
+        <div class="container text-center" data-aos="fade-up">
+            <div class="hero-badge"><span></span> Tape-Out Workflow</div>
+            <h2>4 Steps to Full Volume Production</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
+                <div class="bento-card">
+                    <div style="font-size:1.8rem; color:var(--accent); font-weight:800;">01</div>
+                    <h4 style="margin-top:0.5rem;">PDK & Tapeout</h4>
+                    <p style="font-size:0.85rem; color:var(--muted-text); margin-top:0.5rem;">Design rule check verification.</p>
+                </div>
+                <div class="bento-card">
+                    <div style="font-size:1.8rem; color:var(--accent); font-weight:800;">02</div>
+                    <h4 style="margin-top:0.5rem;">EUV Photomask</h4>
+                    <p style="font-size:0.85rem; color:var(--muted-text); margin-top:0.5rem;">Synthesis & pellicle mounting.</p>
+                </div>
+                <div class="bento-card">
+                    <div style="font-size:1.8rem; color:var(--accent); font-weight:800;">03</div>
+                    <h4 style="margin-top:0.5rem;">CyberFab MPW</h4>
+                    <p style="font-size:0.85rem; color:var(--muted-text); margin-top:0.5rem;">Multi-project wafer runs.</p>
+                </div>
+                <div class="bento-card">
+                    <div style="font-size:1.8rem; color:var(--accent); font-weight:800;">04</div>
+                    <h4 style="margin-top:0.5rem;">Volume Ramp</h4>
+                    <p style="font-size:0.85rem; color:var(--muted-text); margin-top:0.5rem;">Automated yield optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: SPECIALIZED FOUNDRY OFFERINGS (CARDS WITH IMAGES) -->
+    <section class="section" style="background:var(--bg-secondary);">
+        <div class="container">
+            <div class="section-head text-center" data-aos="fade-up">
+                <div class="hero-badge pulse-glow"><span></span> Advanced Capabilities</div>
+                <h2>Specialized Semiconductor Solutions</h2>
+                <p style="max-width:700px; margin:1rem auto; color:var(--muted-text);">End-to-end silicon wafer manufacturing, sub-nanometer metrology, and heterogeneous assembly.</p>
+            </div>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:2rem;">
+                <div class="bento-card spotlight-card hover-zoom-container" data-aos="zoom-in">
+                    <img src="./images/services_cleanroom_inspection.png" alt="Wafer Metrology" class="hover-zoom-img" style="height:190px;">
+                    <div style="padding:1.5rem;">
+                        <span class="hero-badge" style="margin-bottom:0.6rem;">In-Line Metrology</span>
+                        <h4>Sub-Nanometer Laser Inspection</h4>
+                        <p style="font-size:0.85rem; color:var(--muted-text); margin-top:0.5rem;">Real-time electron-beam reflection and atomic X-ray structural flaw detection ensuring 99.4%+ die yields.</p>
+                        <a href="#" data-redirect="404" class="btn btn-outline btn-404" style="margin-top:1rem; font-size:0.8rem; padding:0.4rem 1rem;">View Metrology Specs <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="bento-card spotlight-card hover-zoom-container" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="./images/services_chiplet_assembly.png" alt="3D Packaging" class="hover-zoom-img" style="height:190px;">
+                    <div style="padding:1.5rem;">
+                        <span class="hero-badge" style="margin-bottom:0.6rem;">Heterogeneous Stacking</span>
+                        <h4>3D Bumpless Interposer Integration</h4>
+                        <p style="font-size:0.85rem; color:var(--muted-text); margin-top:0.5rem;">Direct die-to-die bonding with sub-micron pitch spacing for HBM3e high-bandwidth AI hardware architectures.</p>
+                        <a href="#" data-redirect="404" class="btn btn-outline btn-404" style="margin-top:1rem; font-size:0.8rem; padding:0.4rem 1rem;">View 3D Specs <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="bento-card spotlight-card hover-zoom-container" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="./images/cleanroom_robotics.png" alt="Robotic Transport" class="hover-zoom-img" style="height:190px;">
+                    <div style="padding:1.5rem;">
+                        <span class="hero-badge" style="margin-bottom:0.6rem;">ISO Class-1 Logistics</span>
+                        <h4>Automated FOUP Wafer Transport</h4>
+                        <p style="font-size:0.85rem; color:var(--muted-text); margin-top:0.5rem;">Robotic overhead monorail transporting wafer pods across lithography, etch, and ion dopant bays with zero contamination.</p>
+                        <a href="#" data-redirect="404" class="btn btn-outline btn-404" style="margin-top:1rem; font-size:0.8rem; padding:0.4rem 1rem;">View Robotics Specs <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: INTERACTIVE SERVICES FAQ ACCORDION -->
+    <section class="section">
+        <div class="container" style="max-width:850px;">
+            <div class="section-head text-center" data-aos="fade-up">
+                <div class="hero-badge"><span></span> Client Information</div>
+                <h2>Foundry & PDK Licensing FAQ</h2>
+                <p>Frequently asked questions about design rule decks, shuttle runs, and PDK access.</p>
+            </div>
+
+            <div style="margin-top:2rem;" data-aos="fade-up">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I request PDK access for Sub-2nm GAA logic designs?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Sign up for an engineering account through our <a href="./register.html" style="color:var(--accent); font-weight:700;">Registration Portal</a>. Upon corporate NDA verification, certified PDK v2.4 rule decks (DRC, LVS, PEX, TCAD Spice models) are instantly available in your dashboard.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is the schedule for Multi-Project Wafer (MPW) shuttle departures?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Stackly operates quarterly CyberShuttle MPW runs. Upcoming runs depart on August 25, September 10, and October 18. GDSII files must be locked and DRC-clean 10 days prior to shuttle departure.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Does Stackly support 3D Heterogeneous interposer stacking?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! Our 3D Bumpless Interposer technology supports sub-micron pitch die-to-die interconnects, UCIe 2.0 protocols, and vertical HBM3e high-bandwidth memory integration.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What ISO cleanroom standards are maintained in your facilities?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        All main fab facilities in Santa Clara, Dresden, and Hsinchu are ISO Class-1 certified with active particle count under 0.01 particles per cubic meter and strict ambient temperature control.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="./index.html" class="logo" style="margin-bottom:1rem;">
+                        <img src="./images/stackly_logo.webp" alt="Stackly Logo">
+                        <span class="logo-text" style="color:#FFF;">STACKLY</span>
+                    </a>
+                    <p style="font-size:0.9rem; max-width:300px; margin-top:1rem;">Global leader in extreme ultraviolet silicon wafer fabrication and 3D heterogeneous packaging.</p>
+                    <div class="social-links">
+                        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow Stackly on X"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Follow Stackly on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Subscribe to Stackly YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 style="color:#FFF; margin-bottom:1.2rem;">Quick Navigation</h4>
+                    <ul style="display:flex; flex-direction:column; gap:0.6rem; font-size:0.9rem;">
+                        <li><a href="./index.html" style="color:#94A3B8;">Home</a></li>
+                        <li><a href="./about.html" style="color:#94A3B8;">About Stackly</a></li>
+                        <li><a href="./services.html" style="color:#94A3B8;">Foundry Services</a></li>
+                        <li><a href="./blog.html" style="color:#94A3B8;">Tech Journal</a></li>
+                        <li><a href="./contact.html" style="color:#94A3B8;">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="color:#FFF; margin-bottom:1.2rem;">Foundry Services</h4>
+                    <ul style="display:flex; flex-direction:column; gap:0.6rem; font-size:0.9rem;">
+                        <li><a href="#" data-redirect="404" class="btn-404" style="color:#94A3B8;">Logic Wafers</a></li>
+                        <li><a href="#" data-redirect="404" class="btn-404" style="color:#94A3B8;">3D Packaging</a></li>
+                        <li><a href="#" data-redirect="404" class="btn-404" style="color:#94A3B8;">EUV Photomasks</a></li>
+                        <li><a href="#" data-redirect="404" class="btn-404" style="color:#94A3B8;">Silicon Photonics</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="color:#FFF; margin-bottom:1.2rem;">Portal Login</h4>
+                    <p style="font-size:0.85rem; margin-bottom:1rem;">Access client telemetry & order status.</p>
+                    <a href="./login.html" class="btn btn-primary" style="width:100%; font-size:0.85rem;">Client Login <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div style="text-align:center; border-top:1px solid rgba(255,255,255,0.08); padding-top:2rem; font-size:0.85rem; color:#64748B;">
+                &copy; 2026 Stackly Semiconductor Manufacturing Inc. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/script.js?v=6"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>

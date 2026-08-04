@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Console — Stackly</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/dashboard-enterprise.css">
+</head>
+<body class="enterprise-mode">
+
+    <div class="ent-layout">
+        <!-- Sidebar -->
+        <aside class="ent-sidebar">
+            <div class="ent-logo-container" style="justify-content: space-between;">
+                <a href="#" style="text-decoration:none; display:flex; align-items:center; gap:0.8rem;">
+                    <img src="./images/stackly_logo.webp" alt="Stackly Logo">
+                    <span class="ent-logo-text">Stackly</span>
+                </a>
+                <button style="background:var(--ent-surface); border:1px solid var(--ent-border); color:var(--ent-text-muted); border-radius:4px; padding:0.2rem 0.4rem; cursor:pointer;"><i class="fa-solid fa-chevron-left"></i></button>
+            </div>
+
+            <div class="ent-profile-card">
+                <div class="ent-avatar">L</div>
+                <div class="ent-profile-info">
+                    <span class="ent-profile-name">lingalamanasa123</span>
+                    <span class="ent-profile-role">System Administrator</span>
+                </div>
+            </div>
+
+            <div style="flex-grow:1; overflow-y:auto; overflow-x:hidden;">
+                <!-- Overview -->
+                <div class="ent-nav-section">
+                    <div class="ent-nav-header">OVERVIEW</div>
+                    <a href="#" class="ent-nav-item active">
+                        <div style="display:flex; align-items:center; gap:0.8rem;">
+                            <i class="fa-solid fa-chart-simple" style="color:var(--ent-accent-orange);"></i> Dashboard
+                        </div>
+                    </a>
+                    <a href="#" class="ent-nav-item">
+                        <div style="display:flex; align-items:center; gap:0.8rem;">
+                            <i class="fa-solid fa-shield-halved" style="color:var(--ent-accent-red);"></i> Active Threats
+                        </div>
+                        <span class="ent-nav-badge">12</span>
+                    </a>
+                </div>
+
+                <!-- Management -->
+                <div class="ent-nav-section">
+                    <div class="ent-nav-header">MANAGEMENT</div>
+                    <a href="#" class="ent-nav-item">
+                        <div style="display:flex; align-items:center; gap:0.8rem;">
+                            <i class="fa-solid fa-users"></i> Users & Access
+                        </div>
+                    </a>
+                    <a href="#" class="ent-nav-item">
+                        <div style="display:flex; align-items:center; gap:0.8rem;">
+                            <i class="fa-solid fa-desktop"></i> Endpoints
+                        </div>
+                    </a>
+                    <a href="#" class="ent-nav-item">
+                        <div style="display:flex; align-items:center; gap:0.8rem;">
+                            <i class="fa-solid fa-file-shield"></i> Security Policies
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Analytics -->
+                <div class="ent-nav-section">
+                    <div class="ent-nav-header">ANALYTICS</div>
+                    <a href="#" class="ent-nav-item">
+                        <div style="display:flex; align-items:center; gap:0.8rem;">
+                            <i class="fa-solid fa-chart-line"></i> Reports
+                        </div>
+                    </a>
+                    <a href="#" class="ent-nav-item">
+                        <div style="display:flex; align-items:center; gap:0.8rem;">
+                            <i class="fa-solid fa-receipt"></i> Audit Logs
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom Actions -->
+            <div class="ent-nav-section" style="margin-bottom:0; padding-top:1rem; border-top:1px solid var(--ent-border);">
+                <a href="#" class="ent-nav-item">
+                    <div style="display:flex; align-items:center; gap:0.8rem;">
+                        <i class="fa-solid fa-gear"></i> Settings
+                    </div>
+                </a>
+                <a href="./login.html" class="ent-nav-item">
+                    <div style="display:flex; align-items:center; gap:0.8rem;">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+                    </div>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="ent-main">
+            <!-- Header -->
+            <header class="ent-header">
+                <div>
+                    <h1 class="ent-header-title">Organization Overview</h1>
+                    <p class="ent-header-subtitle">Stackly Enterprise Console</p>
+                </div>
+                <div class="ent-header-actions">
+                    <div class="ent-header-icon">
+                        <i class="fa-regular fa-bell"></i>
+                        <div class="ent-header-badge">12</div>
+                    </div>
+                    <div class="ent-avatar" style="width:36px; height:36px; font-size:1.1rem; cursor:pointer;">L</div>
+                    <span style="font-size:0.85rem; font-weight:600;">lingalamanasa123</span>
+                </div>
+            </header>
+
+            <!-- Banner -->
+            <div class="ent-banner">
+                <div class="ent-banner-content">
+                    <div style="font-size:2rem;">👋</div>
+                    <div class="ent-banner-text">
+                        <h2>Welcome back, <span>lingalamanasa123!</span></h2>
+                        <p>Your network is secure. BrainShield AI blocked 2,847 threats in the last 24 hours.</p>
+                    </div>
+                </div>
+                <div class="ent-btn-group">
+                    <button class="ent-btn ent-btn-primary">Run Global Scan</button>
+                    <button class="ent-btn ent-btn-outline">Export Report</button>
+                </div>
+            </div>
+
+            <!-- Stat Grid -->
+            <div class="ent-stat-grid">
+                <div class="ent-card border-purple">
+                    <div class="ent-stat-header">
+                        <span>Total Threats Blocked</span>
+                        <i class="fa-solid fa-shield-halved" style="color:var(--ent-text-muted);"></i>
+                    </div>
+                    <div class="ent-stat-value">2.4M</div>
+                    <div class="ent-stat-trend text-green"><i class="fa-solid fa-arrow-up"></i> 12% vs last month</div>
+                </div>
+                <div class="ent-card border-orange">
+                    <div class="ent-stat-header">
+                        <span>Active Users</span>
+                        <i class="fa-solid fa-users" style="color:var(--ent-text-muted);"></i>
+                    </div>
+                    <div class="ent-stat-value">1,248</div>
+                    <div class="ent-stat-trend text-green"><i class="fa-solid fa-arrow-up"></i> 34 new this week</div>
+                </div>
+                <div class="ent-card border-red">
+                    <div class="ent-stat-header">
+                        <span>Critical Alerts</span>
+                        <i class="fa-solid fa-siren-on" style="color:var(--ent-accent-red);"></i>
+                    </div>
+                    <div class="ent-stat-value text-red">12</div>
+                    <div class="ent-stat-trend text-red"><i class="fa-solid fa-arrow-down"></i> 5% vs last week</div>
+                </div>
+                <div class="ent-card border-cyan">
+                    <div class="ent-stat-header">
+                        <span>Network Health</span>
+                        <i class="fa-solid fa-heart-pulse" style="color:var(--ent-accent-red);"></i>
+                    </div>
+                    <div class="ent-stat-value">98%</div>
+                    <div class="ent-stat-trend text-green">Optimal state</div>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="ent-chart-grid">
+                <!-- Line Chart -->
+                <div class="ent-card" style="padding:1.5rem 1.5rem 1rem;">
+                    <div class="ent-card-title">
+                        <span>Threat Activity Trends</span>
+                        <div class="ent-time-toggles">
+                            <button class="ent-time-toggle active">7D</button>
+                            <button class="ent-time-toggle">30D</button>
+                        </div>
+                    </div>
+                    
+                    <svg viewBox="0 0 600 220" style="width:100%; height:auto;">
+                        <defs>
+                            <linearGradient id="purpleGlow" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="rgba(139, 92, 246, 0.4)" />
+                                <stop offset="100%" stop-color="rgba(139, 92, 246, 0.0)" />
+                            </linearGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <!-- Grid -->
+                        <g class="chart-grid">
+                            <line x1="40" y1="180" x2="600" y2="180" />
+                            <line x1="40" y1="144" x2="600" y2="144" />
+                            <line x1="40" y1="108" x2="600" y2="108" />
+                            <line x1="40" y1="72" x2="600" y2="72" />
+                            <line x1="40" y1="36" x2="600" y2="36" />
+                            <line x1="40" y1="0" x2="600" y2="0" />
+                        </g>
+                        <!-- Y-Axis Labels -->
+                        <g class="chart-axis">
+                            <text x="30" y="184" text-anchor="end">0</text>
+                            <text x="30" y="148" text-anchor="end">50</text>
+                            <text x="30" y="112" text-anchor="end">100</text>
+                            <text x="30" y="76" text-anchor="end">150</text>
+                            <text x="30" y="40" text-anchor="end">200</text>
+                            <text x="30" y="4" text-anchor="end">250</text>
+                        </g>
+                        <!-- X-Axis Labels -->
+                        <g class="chart-axis">
+                            <text x="40" y="210" text-anchor="middle">Mon</text>
+                            <text x="133" y="210" text-anchor="middle">Tue</text>
+                            <text x="226" y="210" text-anchor="middle">Wed</text>
+                            <text x="320" y="210" text-anchor="middle">Thu</text>
+                            <text x="413" y="210" text-anchor="middle">Fri</text>
+                            <text x="506" y="210" text-anchor="middle">Sat</text>
+                            <text x="600" y="210" text-anchor="middle">Sun</text>
+                        </g>
+                        
+                        <!-- Gradient Fill Path -->
+                        <path d="M 40 160 Q 86.5 140 133 130 T 226 140 T 320 80 T 413 110 T 506 80 T 600 30 L 600 180 L 40 180 Z" fill="url(#purpleGlow)" />
+                        
+                        <!-- Line Path -->
+                        <path d="M 40 160 Q 86.5 140 133 130 T 226 140 T 320 80 T 413 110 T 506 80 T 600 30" fill="none" stroke="#8B5CF6" stroke-width="3" filter="url(#glow)" />
+                        
+                        <!-- Data Points -->
+                        <circle cx="40" cy="160" r="4" fill="#F59E0B" />
+                        <circle cx="133" cy="130" r="4" fill="#F59E0B" />
+                        <circle cx="226" cy="140" r="4" fill="#F59E0B" />
+                        <circle cx="320" cy="80" r="4" fill="#F59E0B" />
+                        <circle cx="413" cy="110" r="4" fill="#F59E0B" />
+                        <circle cx="506" cy="80" r="4" fill="#F59E0B" />
+                        <circle cx="600" cy="30" r="4" fill="#F59E0B" />
+                    </svg>
+                </div>
+
+                <!-- Donut Chart -->
+                <div class="ent-card">
+                    <div class="ent-card-title">Threat Types</div>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <!-- SVG Donut Chart -->
+                        <svg viewBox="0 0 160 160" style="width:140px; height:140px;">
+                            <circle cx="80" cy="80" r="60" fill="none" stroke="var(--ent-surface-hover)" stroke-width="24" />
+                            <!-- Cyan segment (Other) -->
+                            <circle cx="80" cy="80" r="60" fill="none" stroke="#06B6D4" stroke-width="24" stroke-dasharray="377" stroke-dashoffset="300" stroke-linecap="round" transform="rotate(-90 80 80)"/>
+                            <!-- Orange segment (Phishing) -->
+                            <circle cx="80" cy="80" r="60" fill="none" stroke="#F59E0B" stroke-width="24" stroke-dasharray="377" stroke-dashoffset="200" stroke-linecap="round" transform="rotate(20 80 80)"/>
+                            <!-- Purple segment (Malware) -->
+                            <circle cx="80" cy="80" r="60" fill="none" stroke="#8B5CF6" stroke-width="24" stroke-dasharray="377" stroke-dashoffset="150" stroke-linecap="round" transform="rotate(110 80 80)"/>
+                            <!-- Red segment (Ransomware) -->
+                            <circle cx="80" cy="80" r="60" fill="none" stroke="#EF4444" stroke-width="24" stroke-dasharray="377" stroke-dashoffset="320" stroke-linecap="round" transform="rotate(230 80 80)"/>
+                        </svg>
+                        
+                        <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                            <div class="legend-item"><div class="legend-dot" style="background:#8B5CF6;"></div> Malware</div>
+                            <div class="legend-item"><div class="legend-dot" style="background:#F59E0B;"></div> Phishing</div>
+                            <div class="legend-item"><div class="legend-dot" style="background:#EF4444;"></div> Ransomware</div>
+                            <div class="legend-item"><div class="legend-dot" style="background:#06B6D4;"></div> Other</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Grid -->
+            <div class="ent-data-grid">
+                <!-- Alerts Table -->
+                <div class="ent-card">
+                    <div class="ent-card-title">
+                        <span>Recent High-Priority Alerts</span>
+                        <button class="ent-btn-outline" style="font-size:0.75rem; padding:0.3rem 0.6rem; border-radius:4px; border:1px solid var(--ent-border); background:var(--ent-bg); color:var(--ent-text-muted);">View All</button>
+                    </div>
+                    <div style="overflow-x:auto;">
+                        <table class="ent-table">
+                            <thead>
+                                <tr>
+                                    <th>Threat ID</th>
+                                    <th>Type</th>
+                                    <th>Severity</th>
+                                    <th>Target</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="color:var(--ent-text-muted);">#TR-8842</td>
+                                    <td>Ransomware (LockBit)</td>
+                                    <td><span class="ent-badge critical">Critical</span></td>
+                                    <td style="color:var(--ent-text-muted);">SRV-01-DB</td>
+                                    <td><span class="ent-badge blocked">Blocked</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="color:var(--ent-text-muted);">#TR-8841</td>
+                                    <td>SQL Injection</td>
+                                    <td><span class="ent-badge high">High</span></td>
+                                    <td style="color:var(--ent-text-muted);">Web App Firewall</td>
+                                    <td><span class="ent-badge investigating">Investigating</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="color:var(--ent-text-muted);">#TR-8840</td>
+                                    <td>DDoS Attack Attempt</td>
+                                    <td><span class="ent-badge high">High</span></td>
+                                    <td style="color:var(--ent-text-muted);">Edge Gateway</td>
+                                    <td><span class="ent-badge blocked">Blocked</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Live Activity -->
+                <div class="ent-card">
+                    <div class="ent-card-title">
+                        <span>Live BrainShield Activity</span>
+                        <span class="ent-badge live"><i class="fa-solid fa-circle"></i> Live</span>
+                    </div>
+                    
+                    <div class="ent-log-item">
+                        <div class="ent-log-icon blue"><i class="fa-solid fa-network-wired"></i></div>
+                        <div class="ent-log-content">
+                            <h4>Network Rule Updated</h4>
+                            <p>Firewall auto-blocked IP 45.33.22.1</p>
+                        </div>
+                        <div class="ent-log-time">Just now</div>
+                    </div>
+                    
+                    <div class="ent-log-item">
+                        <div class="ent-log-icon green"><i class="fa-solid fa-check"></i></div>
+                        <div class="ent-log-content">
+                            <h4>System Scan Completed</h4>
+                            <p>10,482 files scanned. 0 threats found.</p>
+                        </div>
+                        <div class="ent-log-time">Just now</div>
+                    </div>
+                    
+                    <div class="ent-log-item" style="border:none;">
+                        <div class="ent-log-icon red"><i class="fa-solid fa-xmark"></i></div>
+                        <div class="ent-log-content">
+                            <h4>Login Failed</h4>
+                            <p>Multiple failed attempts from admin account</p>
+                        </div>
+                        <div class="ent-log-time">2 min ago</div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
