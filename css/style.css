@@ -659,6 +659,16 @@ footer { background: var(--dark-slate); color: #FFF; padding: 5rem 0 2rem; }
     /* -- Hide image side panel in shuttle card on mobile -- */
     .bento-card[style*="grid-template-columns"] > div:last-child > img { max-height: 200px; }
 
+    /* -- Dashboard Hero Banner fix -- */
+    .db-hero-banner { height: auto !important; min-height: 250px; }
+    .db-hero-banner-overlay { flex-direction: column !important; align-items: flex-start !important; padding: 1.5rem !important; gap: 1rem !important; text-align: left; position: relative !important; }
+    .db-hero-banner-overlay > div:last-child { margin-left: 0 !important; width: 100%; display: flex; flex-direction: column; gap: 0.5rem; }
+    .db-hero-banner-overlay > div:last-child a { width: 100%; justify-content: center; }
+    
+    /* -- Dashboard PDK & File Lists Mobile Wrap Fix -- */
+    #pdks > div > div { flex-direction: column; align-items: flex-start !important; gap: 1rem; }
+    #pdks > div > div > a { width: 100%; justify-content: center; }
+
     /* -- Images -- */
     img { max-width: 100%; height: auto; }
 }
