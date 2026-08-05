@@ -4,10 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Sign In — Stackly</title>
+    <meta name="description" content="Sign in to the Stackly Foundry Portal to access live fab telemetry, PDK packages and wafer shuttle status.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { height: 100%; margin: 0; overflow-x: hidden; }
+
+        .auth-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+        }
+
+        /* ── Left Brand Panel ── */
+        .auth-brand {
+            position: relative;
+            overflow: hidden;
+            background: var(--dark-slate);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 3rem;
+        }
+        .auth-brand-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.35;
+        }
+        .auth-brand-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, rgba(15,23,42,0.6) 0%, rgba(15,23,42,0.92) 100%);
+        }
+        .auth-brand-content { position: relative; z-index: 2; }
+        .auth-brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: auto;
+            padding-bottom: 2rem;
+            position: absolute;
+            top: 2.5rem;
+            left: 3rem;
+        }
+        .auth-brand-logo img { width: 40px; height: 40px; }
+        .auth-brand-logo span { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 800; color: #FFF; }
+        .auth-brand h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); color: #FFF; margin-bottom: 1rem; line-height: 1.3; }
+        .auth-brand p { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 2rem; }
+        .auth-brand-stats { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .auth-stat { text-align: center; }
+        .auth-stat-val { font-size: 1.6rem; font-weight: 800; color: var(--accent); display: block; }
+        .auth-stat-label { font-size: 0.72rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.08em; }
+
+        /* ── Right Form Panel ── */
+        .auth-form-panel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+            padding: 2.5rem 2rem;
+            overflow-y: auto;
+        }
+        .auth-form-box {
+            width: 100%;
+            max-width: 420px;
+        }
+        .auth-form-header { margin-bottom: 2rem; }
+        .auth-form-header h1 { font-size: 1.65rem; margin: 0.5rem 0 0.3rem; }
+        .auth-form-header p { font-size: 0.88rem; color: var(--muted-text); margin: 0; }
+
+        .auth-field { margin-bottom: 1.2rem; }
+        .auth-field label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 0.4rem;
+        }
+        .auth-input-wrap { position: relative; }
+        .auth-input-wrap i {
+            position: absolute;
+            left: 0.9rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted-text);
+            font-size: 0.9rem;
+            pointer-events: none;
+        }
+        .auth-input-wrap input,
+        .auth-input-wrap select {
+            width: 100%;
+            padding: 0.85rem 0.9rem 0.85rem 2.5rem;
+            border-radius: 10px;
+            border: 1.5px solid var(--glass-border);
+            background: var(--bg);
+            color: var(--dark-text);
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.25s;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+        .auth-input-wrap input:focus,
+        .auth-input-wrap select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(16,185,129,0.12); }
+
+        .auth-submit {
+            width: 100%;
+            padding: 0.9rem;
+            font-size: 1rem;
+            border-radius: 10px;
+            margin-top: 0.5rem;
+        }
+        .auth-footer-link { text-align: center; margin-top: 1.2rem; font-size: 0.85rem; color: var(--muted-text); }
+        .auth-footer-link a { color: var(--accent); font-weight: 700; }
+        .auth-divider { text-align: center; margin: 1.2rem 0; font-size: 0.8rem; color: var(--muted-text); border-top: 1px solid var(--glass-border); padding-top: 1rem; }
+        .auth-divider a { color: var(--accent); }
+
+        /* ── Mobile: Stack vertically ── */
+        @media (max-width: 768px) {
+            .auth-layout { grid-template-columns: 1fr; }
+            .auth-brand { display: none; } /* Hide image panel on mobile */
+            .auth-form-panel { padding: 2rem 1.2rem; min-height: 100vh; align-items: flex-start; padding-top: 3rem; }
+            .auth-form-box { max-width: 100%; }
+            .auth-mobile-logo {
+                display: flex !important;
+                align-items: center;
+                gap: 0.7rem;
+                margin-bottom: 2rem;
+                justify-content: center;
+            }
+            .auth-mobile-logo img { width: 36px; height: 36px; }
+            .auth-mobile-logo span { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--dark-text); }
+        }
+        .auth-mobile-logo { display: none; }
+    </style>
 </head>
-<body style="display:flex; align-items:center; justify-content:center; min-height:100vh; background: radial-gradient(circle at 50% 50%, var(--bg-secondary), var(--bg));">
+<body>
     <!-- RADAR LOADER -->
     <div id="loader" style="opacity: 0; visibility: hidden;">
         <div class="loader-container">
@@ -24,43 +160,91 @@
         </div>
     </div>
 
-    <div style="width:100%; max-width:440px; padding:2.5rem; background:#FFF; border-radius:var(--radius); border:1px solid var(--glass-border); box-shadow:var(--shadow);">
-        <div style="text-align:center; margin-bottom:2rem;">
-            <a href="./index.html" class="logo" style="justify-content:center; margin-bottom:1rem;">
+    <div class="auth-layout">
+        <!-- LEFT: Brand Image Panel -->
+        <div class="auth-brand">
+            <img src="./images/about_hq_facility.png" alt="Stackly Fab Facility" class="auth-brand-bg">
+            <div class="auth-brand-overlay"></div>
+            <a href="./index.html" class="auth-brand-logo">
                 <img src="./images/stackly_logo.webp" alt="Stackly Logo">
-                <span class="logo-text">STACKLY</span>
+                <span>STACKLY</span>
             </a>
-            <h2>Foundry Portal Login</h2>
-            <p style="font-size:0.85rem; color:var(--muted-text); margin-top:0.3rem;">Sign in to access live fab telemetry & PDK packages.</p>
+            <div class="auth-brand-content">
+                <div class="hero-badge" style="display:inline-flex; margin-bottom:1rem;"><span></span> Foundry Portal Access</div>
+                <h2>Silicon-grade security for your silicon designs.</h2>
+                <p>Log in to monitor live tape-out progress, download certified PDKs, and track real-time wafer shuttle schedules from our ISO Class-1 cleanroom.</p>
+                <div class="auth-brand-stats">
+                    <div class="auth-stat">
+                        <span class="auth-stat-val">99.8%</span>
+                        <span class="auth-stat-label">Uptime SLA</span>
+                    </div>
+                    <div class="auth-stat">
+                        <span class="auth-stat-val">2nm</span>
+                        <span class="auth-stat-label">Process Node</span>
+                    </div>
+                    <div class="auth-stat">
+                        <span class="auth-stat-val">500+</span>
+                        <span class="auth-stat-label">Active Clients</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <form id="loginForm">
-            <div style="margin-bottom:1.2rem;">
-                <label style="font-size:0.85rem; color:var(--muted-text);">Your Full Name</label>
-                <input type="text" id="username" placeholder="Enter your full name" required style="width:100%; padding:0.8rem; border-radius:8px; border:1px solid var(--glass-border); background:var(--bg); color:var(--dark-text); margin-top:0.3rem; outline:none;">
+        <!-- RIGHT: Form Panel -->
+        <div class="auth-form-panel">
+            <div class="auth-form-box">
+                <!-- Mobile Logo (only visible on mobile) -->
+                <div class="auth-mobile-logo">
+                    <img src="./images/stackly_logo.webp" alt="Stackly Logo">
+                    <span>STACKLY</span>
+                </div>
+
+                <div class="auth-form-header">
+                    <div class="hero-badge" style="display:inline-flex; margin-bottom:0.6rem;"><span></span> Secure Sign-In</div>
+                    <h1>Welcome back</h1>
+                    <p>Sign in to access live fab telemetry &amp; PDK packages.</p>
+                </div>
+
+                <form id="loginForm">
+                    <div class="auth-field">
+                        <label for="username">Your Full Name</label>
+                        <div class="auth-input-wrap">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="username" placeholder="e.g. Jane Smith" required>
+                        </div>
+                    </div>
+
+                    <div class="auth-field">
+                        <label for="userRole">Access Role</label>
+                        <div class="auth-input-wrap">
+                            <i class="fa-solid fa-id-badge"></i>
+                            <select id="userRole">
+                                <option value="user">Client Engineer (User Dashboard)</option>
+                                <option value="admin">Foundry Administrator (Admin Dashboard)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="auth-field">
+                        <label for="loginPassword">Password</label>
+                        <div class="auth-input-wrap">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary auth-submit">
+                        Authenticate &amp; Enter Portal <i class="fa-solid fa-right-to-bracket"></i>
+                    </button>
+                </form>
+
+                <div class="auth-footer-link">
+                    Don't have credentials? <a href="./register.html">Register Access</a>
+                </div>
+                <div class="auth-divider">
+                    &copy; 2026 Stackly Semiconductor Inc. &nbsp;|&nbsp; <a href="./index.html">Back to Home</a>
+                </div>
             </div>
-
-            <div style="margin-bottom:1.2rem;">
-                <label style="font-size:0.85rem; color:var(--muted-text);">Access Role</label>
-                <select id="userRole" style="width:100%; padding:0.8rem; border-radius:8px; border:1px solid var(--glass-border); background:var(--bg); color:var(--dark-text); margin-top:0.3rem; outline:none;">
-                    <option value="user">Client Engineer (User Dashboard)</option>
-                    <option value="admin">Foundry Administrator (Admin Dashboard)</option>
-                </select>
-            </div>
-
-            <div style="margin-bottom:1.5rem;">
-                <label style="font-size:0.85rem; color:var(--muted-text);">Password</label>
-                <input type="password" placeholder="Enter your password" required style="width:100%; padding:0.8rem; border-radius:8px; border:1px solid var(--glass-border); background:var(--bg); color:var(--dark-text); margin-top:0.3rem; outline:none;">
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="width:100%;">Authenticate & Enter Portal <i class="fa-solid fa-right-to-bracket"></i></button>
-        </form>
-
-        <div style="text-align:center; margin-top:1.5rem; font-size:0.85rem; color:var(--muted-text);">
-            Don't have foundry credentials? <a href="./register.html" style="color:var(--accent); font-weight:700;">Register Access</a>
-        </div>
-        <div style="text-align:center; margin-top:1.5rem; font-size:0.8rem; color:var(--muted-text); border-top:1px solid var(--glass-border); padding-top:1rem;">
-            &copy; 2026 Stackly Semiconductor Manufacturing Inc. | <a href="./index.html" style="color:var(--accent);">Back to Home</a>
         </div>
     </div>
 

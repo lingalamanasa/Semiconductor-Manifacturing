@@ -646,6 +646,19 @@ footer { background: var(--dark-slate); color: #FFF; padding: 5rem 0 2rem; }
     /* -- Cam cards grid -- */
     div[style*="grid-template-columns:repeat(auto-fit"] { grid-template-columns: 1fr !important; }
 
+    /* -- Dashboard 2-column inline grids → single column -- */
+    .dashboard-main div[style*="grid-template-columns:1fr 1fr"],
+    .dashboard-main div[style*="grid-template-columns: 1fr 1fr"],
+    main div[style*="grid-template-columns:1fr 1fr"],
+    main div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+
+    /* -- Dashboard shuttle card split layout -- */
+    .bento-card[style*="grid-template-columns:1fr 380px"],
+    .bento-card[style*="grid-template-columns: 1fr 380px"] { grid-template-columns: 1fr !important; }
+
+    /* -- Hide image side panel in shuttle card on mobile -- */
+    .bento-card[style*="grid-template-columns"] > div:last-child > img { max-height: 200px; }
+
     /* -- Images -- */
     img { max-width: 100%; height: auto; }
 }
