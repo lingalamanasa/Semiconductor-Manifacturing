@@ -631,8 +631,24 @@ footer { background: var(--dark-slate); color: #FFF; padding: 5rem 0 2rem; }
 
     /* -- Dashboard -- */
     .dashboard-layout { flex-direction: column; }
-    .sidebar { width: 100%; min-height: unset; }
-    .dashboard-main { padding: 1.5rem; }
+    .sidebar, .ent-sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        left: -320px !important;
+        width: 290px !important;
+        height: 100vh !important;
+        z-index: 1200 !important;
+        background: #FFF !important;
+        overflow-y: auto !important;
+        transition: left 0.3s ease !important;
+        box-shadow: var(--shadow-lg) !important;
+        margin: 0 !important;
+        padding: 2rem 1.5rem !important;
+    }
+    .sidebar.active, .ent-sidebar.active {
+        left: 0 !important;
+    }
+    .dashboard-main, .ent-main { padding: 1.2rem !important; width: 100% !important; }
     .metrics-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
 
     /* -- Footer -- */
@@ -664,37 +680,12 @@ footer { background: var(--dark-slate); color: #FFF; padding: 5rem 0 2rem; }
         display: flex !important;
         align-items: center;
         justify-content: space-between;
-        padding: 0.9rem 1.2rem;
+        padding: 0.8rem 1.2rem;
         background: #0f172a;
         border-bottom: 1px solid var(--glass-border);
         position: sticky;
         top: 0;
         z-index: 1000;
-    }
-    .db-mobile-logo {
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
-        text-decoration: none;
-    }
-    .db-mobile-logo-badge {
-        width: 32px;
-        height: 32px;
-        background: #f97316;
-        color: #000;
-        border-radius: 8px;
-        font-family: 'Space Grotesk', sans-serif;
-        font-weight: 900;
-        font-size: 1.2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .db-mobile-logo-text {
-        font-family: 'Space Grotesk', sans-serif;
-        font-size: 1.2rem;
-        font-weight: 800;
-        color: #FFF;
     }
     .db-user-avatar-badge {
         width: 36px;
@@ -715,7 +706,7 @@ footer { background: var(--dark-slate); color: #FFF; padding: 5rem 0 2rem; }
         color: #FFF;
         font-size: 1.4rem;
         cursor: pointer;
-        padding: 0.2rem;
+        padding: 0.2rem 0.5rem;
     }
 
     /* -- Mobile Hero Welcome Card -- */

@@ -78,12 +78,10 @@
     <!-- MOBILE TOP HEADER BAR (Mobile Only) -->
     <div class="db-mobile-bar" style="display:none;">
         <button class="db-menu-btn" id="dbMobileToggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
-        <a href="./index.html" class="db-mobile-logo">
-            <div class="db-mobile-logo-badge">S</div>
-            <span class="db-mobile-logo-text">Stackly</span>
-        </a>
         <div class="db-user-avatar-badge userInitialAvatar">L</div>
     </div>
+
+    <div class="mobile-overlay" id="dashboardOverlay"></div>
 
     <div class="dashboard-layout">
         <!-- SIDEBAR NAV -->
@@ -93,14 +91,24 @@
                     <img src="./images/stackly_logo.webp" alt="Stackly Logo">
                     <span class="logo-text">STACKLY</span>
                 </a>
+                
                 <div style="font-size:0.75rem; color:var(--accent); font-weight:800; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:1rem;">CLIENT CONSOLE</div>
-                <nav style="display:flex; flex-direction:column; gap:0.75rem;">
+                <nav style="display:flex; flex-direction:column; gap:0.6rem;">
                     <a href="#overview" class="btn btn-outline" style="justify-content:flex-start; background:rgba(16,185,129,0.1); border-color:var(--accent); color:var(--accent);"><i class="fa-solid fa-gauge-high"></i> Overview</a>
                     <a href="#tapeouts" class="btn btn-outline" style="justify-content:flex-start;"><i class="fa-solid fa-rocket"></i> Active Tapeouts</a>
                     <a href="#pdks" class="btn btn-outline" style="justify-content:flex-start;"><i class="fa-solid fa-folder-arrow-down"></i> PDK Repository</a>
                     <a href="#fab-images" class="btn btn-outline" style="justify-content:flex-start;"><i class="fa-solid fa-camera"></i> Fab Visuals</a>
                     <a href="#telemetry" class="btn btn-outline" style="justify-content:flex-start;"><i class="fa-solid fa-chart-line"></i> Yield Telemetry</a>
                     <a href="#support" class="btn btn-outline" style="justify-content:flex-start;"><i class="fa-solid fa-headset"></i> Senior Support</a>
+                </nav>
+
+                <div style="font-size:0.75rem; color:var(--muted-text); font-weight:800; text-transform:uppercase; letter-spacing:0.1em; margin-top:1.5rem; margin-bottom:0.8rem;">MAIN NAVIGATION</div>
+                <nav style="display:flex; flex-direction:column; gap:0.6rem;">
+                    <a href="./index.html" class="btn btn-outline" style="justify-content:flex-start;"><i class="fa-solid fa-house"></i> Home Page</a>
+                    <a href="./about.html" class="btn btn-outline" style="justify-content:flex-start;"><i class="fa-solid fa-building-circle-check"></i> About Stackly</a>
+                    <a href="./services.html" class="btn btn-outline" style="justify-content:flex-start;"><i class="fa-solid fa-bolt"></i> Services</a>
+                    <a href="./blog.html" class="btn btn-outline" style="justify-content:flex-start;"><i class="fa-solid fa-newspaper"></i> Tech Journal / Blog</a>
+                    <a href="./contact.html" class="btn btn-outline" style="justify-content:flex-start;"><i class="fa-solid fa-headset"></i> Contact Us</a>
                 </nav>
             </div>
             <div>

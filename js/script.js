@@ -355,15 +355,29 @@ function initMainLogic() {
         el.innerText = formattedDate;
     });
 
-    // Mobile Dashboard Sidebar Toggle
+    // Mobile Dashboard Sidebar & Overlay Toggle
     const dbMobileToggle = document.getElementById('dbMobileToggle');
-    const dashboardSidebar = id => document.getElementById(id);
-    if (dbMobileToggle) {
-        dbMobileToggle.addEventListener('click', () => {
-            const sidebar = document.getElementById('dashboardSidebar') || document.querySelector('.sidebar') || document.querySelector('.ent-sidebar');
-            if (sidebar) sidebar.classList.toggle('active');
-        });
+    const dashboardOverlay = document.getElementById('dashboardOverlay');
+    
+    function toggleDashboardSidebar() {
+        const sidebar = document.getElementById('dashboardSidebar') || document.querySelector('.sidebar') || document.querySelector('.ent-sidebar');
+        if (sidebar) sidebar.classList.toggle('active');
+        if (dashboardOverlay) dashboardOverlay.classList.toggle('active');
     }
+
+    if (dbMobileToggle) dbMobileToggle.addEventListener('click', toggleDashboardSidebar);
+    if (dashboardOverlay) dashboardOverlay.addEventListener('click', toggleDashboardSidebar);
+
+    // Close sidebar on clicking navigation links
+    document.querySelectorAll('.sidebar a, .ent-sidebar a').forEach(link => {
+        link.addEventListener('click', () => {
+            const sidebar = document.getElementById('dashboardSidebar') || document.querySelector('.sidebar') || document.querySelector('.ent-sidebar');
+            if (sidebar?.classList.contains('active')) {
+                sidebar.classList.remove('active');
+                if (dashboardOverlay) dashboardOverlay.classList.remove('active');
+            }
+        });
+    });
 
     if (logoutBtn) {
         logoutBtn.addEventListener('click', (e) => {
