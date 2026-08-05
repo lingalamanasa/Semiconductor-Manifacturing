@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enterprise Console — Stackly</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/dashboard-enterprise.css">
 </head>
 <body class="enterprise-mode">
+
+    <!-- MOBILE TOP HEADER BAR (Mobile Only) -->
+    <div class="db-mobile-bar" style="display:none;">
+        <div style="display:flex; align-items:center; gap:0.8rem;">
+            <button class="db-menu-btn" id="dbMobileToggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+            <a href="./index.html" class="logo" style="display:flex; align-items:center; gap:0.6rem; text-decoration:none;">
+                <img src="./images/stackly_logo.webp" alt="Stackly Logo" style="width:28px; height:28px; border-radius:6px; object-fit:cover;">
+                <span class="logo-text" style="color:#FFF; font-size:1.1rem; font-weight:800; font-family:'Space Grotesk',sans-serif;">STACKLY</span>
+            </a>
+        </div>
+        <div class="db-user-avatar-badge userInitialAvatar">L</div>
+    </div>
+    <div class="mobile-overlay" id="dashboardOverlay"></div>
 
     <div class="ent-layout">
         <!-- Sidebar -->
