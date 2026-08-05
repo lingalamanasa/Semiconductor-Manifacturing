@@ -75,9 +75,19 @@
         </script>
     </div>
 
+    <!-- MOBILE TOP HEADER BAR (Mobile Only) -->
+    <div class="db-mobile-bar" style="display:none;">
+        <button class="db-menu-btn" id="dbMobileToggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+        <a href="./index.html" class="db-mobile-logo">
+            <div class="db-mobile-logo-badge">S</div>
+            <span class="db-mobile-logo-text">Stackly</span>
+        </a>
+        <div class="db-user-avatar-badge userInitialAvatar">L</div>
+    </div>
+
     <div class="dashboard-layout">
         <!-- SIDEBAR NAV -->
-        <aside class="sidebar">
+        <aside class="sidebar" id="dashboardSidebar">
             <div>
                 <a href="./dashboard-user.html" class="logo" style="margin-bottom: 2.2rem;">
                     <img src="./images/stackly_logo.webp" alt="Stackly Logo">
@@ -112,22 +122,21 @@
         <!-- MAIN CONTENT AREA -->
         <main class="dashboard-main">
 
-            <!-- HERO WELCOME BANNER WITH IMAGE -->
-            <div id="overview" class="db-hero-banner">
-                <img src="./images/dashboard_fab_overhead_1785863112384.png" alt="Semiconductor Fab Overhead View">
-                <div class="db-hero-banner-overlay">
-                    <div style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.4); border-radius:50%; width:60px; height:60px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                        <i class="fa-solid fa-microchip" style="font-size:1.5rem; color:var(--accent);"></i>
-                    </div>
-                    <div>
-                        <div class="hero-badge" style="margin-bottom:0.4rem; display:inline-flex;"><span></span> Sub-2nm Design Partner Portal</div>
-                        <h2>Welcome, <span id="welcomeUserText" class="gradient-text">Design Specialist</span></h2>
-                        <p>Monitor GDSII tape-out progress, download certified PDKs, and track live wafer shuttle schedules.</p>
-                    </div>
-                    <div style="margin-left:auto; display:flex; gap:0.8rem; flex-wrap:wrap; align-items:center;">
-                        <a href="#" data-redirect="404" class="btn btn-primary btn-404" style="font-size:0.85rem; padding:0.6rem 1.2rem;"><i class="fa-solid fa-cloud-arrow-up"></i> Submit GDSII</a>
-                        <a href="./index.html" class="btn btn-outline" style="font-size:0.85rem; padding:0.6rem 1.2rem; border-color:rgba(255,255,255,0.3); color:#FFF;"><i class="fa-solid fa-house"></i> Main Site</a>
-                    </div>
+            <!-- HERO WELCOME CARD (MATCHING USER SCREENSHOT DESIGN) -->
+            <div id="overview" class="db-hero-card-mobile">
+                <h2>Namaste, <span class="welcomeUserText welcome-name">Design Specialist</span>! 🙏</h2>
+                <p>Welcome to your Stackly Semiconductor dashboard. Here are your active foundry services and telemetry updates.</p>
+                
+                <div style="display:flex; flex-direction:column; align-items:flex-start; gap:0.4rem; margin:1.2rem 0;">
+                    <div class="db-verify-pill"><i class="fa-solid fa-circle-check"></i> Tier-1 Enterprise PDK Access</div>
+                    <div class="db-verify-pill"><i class="fa-solid fa-circle-check"></i> Foundry Account Active</div>
+                    <div class="db-verify-pill"><i class="fa-solid fa-circle-check"></i> Fab 1 Telemetry Linked</div>
+                </div>
+
+                <div class="db-user-stamp-box">
+                    <div class="db-user-stamp-avatar userInitialAvatar">D</div>
+                    <div class="welcomeUserTextSub" style="font-size:1.05rem; font-weight:700; color:#FFF;">Design Specialist</div>
+                    <div class="liveDateText" style="font-size:0.82rem; color:rgba(255,255,255,0.7); margin-top:0.2rem;">Wednesday, 5 August 2026</div>
                 </div>
             </div>
 

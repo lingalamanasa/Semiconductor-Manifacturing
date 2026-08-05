@@ -330,10 +330,39 @@ function initMainLogic() {
         });
     }
 
-    if (welcomeUserText) {
-        let storedName = welcomeUserText.innerText;
-        try { storedName = localStorage.getItem('stackly_user_name') || storedName; } catch(err) {}
-        welcomeUserText.innerText = storedName;
+    // Update User Name, Subname, Initial Avatar and Live Date
+    let storedName = 'Design Specialist';
+    try { storedName = localStorage.getItem('stackly_user_name') || storedName; } catch(err) {}
+    
+    // Welcome text elements
+    document.querySelectorAll('.welcomeUserText, #welcomeUserText').forEach(el => {
+        el.innerText = storedName;
+    });
+    document.querySelectorAll('.welcomeUserTextSub').forEach(el => {
+        el.innerText = storedName;
+    });
+
+    // Initial avatar letter
+    const initialLetter = storedName.trim().charAt(0).toUpperCase() || 'S';
+    document.querySelectorAll('.userInitialAvatar, .ent-avatar').forEach(el => {
+        el.innerText = initialLetter;
+    });
+
+    // Live Date (e.g. Wednesday, 5 August 2026)
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = new Date().toLocaleDateString('en-GB', options);
+    document.querySelectorAll('.liveDateText, #liveDateText').forEach(el => {
+        el.innerText = formattedDate;
+    });
+
+    // Mobile Dashboard Sidebar Toggle
+    const dbMobileToggle = document.getElementById('dbMobileToggle');
+    const dashboardSidebar = id => document.getElementById(id);
+    if (dbMobileToggle) {
+        dbMobileToggle.addEventListener('click', () => {
+            const sidebar = document.getElementById('dashboardSidebar') || document.querySelector('.sidebar') || document.querySelector('.ent-sidebar');
+            if (sidebar) sidebar.classList.toggle('active');
+        });
     }
 
     if (logoutBtn) {

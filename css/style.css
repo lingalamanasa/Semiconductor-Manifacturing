@@ -659,6 +659,130 @@ footer { background: var(--dark-slate); color: #FFF; padding: 5rem 0 2rem; }
     /* -- Hide image side panel in shuttle card on mobile -- */
     .bento-card[style*="grid-template-columns"] > div:last-child > img { max-height: 200px; }
 
+    /* -- Mobile Dashboard Top Header & Mobile Hero Card -- */
+    .db-mobile-bar {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.9rem 1.2rem;
+        background: #0f172a;
+        border-bottom: 1px solid var(--glass-border);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    .db-mobile-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        text-decoration: none;
+    }
+    .db-mobile-logo-badge {
+        width: 32px;
+        height: 32px;
+        background: #f97316;
+        color: #000;
+        border-radius: 8px;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 900;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .db-mobile-logo-text {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: #FFF;
+    }
+    .db-user-avatar-badge {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #10b981;
+        color: #FFF;
+        font-weight: 800;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 10px rgba(16,185,129,0.3);
+    }
+    .db-menu-btn {
+        background: none;
+        border: none;
+        color: #FFF;
+        font-size: 1.4rem;
+        cursor: pointer;
+        padding: 0.2rem;
+    }
+
+    /* -- Mobile Hero Welcome Card -- */
+    .db-hero-card-mobile {
+        background: linear-gradient(145deg, rgba(13,148,136,0.95) 0%, rgba(2,132,199,0.92) 50%, rgba(15,23,42,0.96) 100%), url('../images/about_hq_facility.png');
+        background-size: cover;
+        background-position: center;
+        border-radius: 24px;
+        padding: 2.2rem 1.6rem 1.8rem;
+        color: #FFF;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+    }
+    .db-hero-card-mobile h2 {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: #FFF;
+        margin-bottom: 0.6rem;
+        line-height: 1.25;
+    }
+    .db-hero-card-mobile h2 .welcome-name {
+        color: #fde047;
+        word-break: break-word;
+    }
+    .db-hero-card-mobile p {
+        font-size: 0.88rem;
+        color: rgba(255,255,255,0.78);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+    .db-verify-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(16,185,129,0.18);
+        border: 1px solid rgba(16,185,129,0.35);
+        color: #34d399;
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 0.45rem 0.9rem;
+        border-radius: 99px;
+        margin-bottom: 0.5rem;
+    }
+    .db-user-stamp-box {
+        text-align: center;
+        margin-top: 1.5rem;
+        padding-top: 1.2rem;
+        border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .db-user-stamp-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: #10b981;
+        border: 3.5px solid #fbbf24;
+        box-shadow: 0 0 20px rgba(251,191,36,0.35);
+        color: #FFF;
+        font-size: 2.2rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0.6rem;
+    }
+
     /* -- Dashboard Hero Banner fix -- */
     .db-hero-banner { height: auto !important; min-height: 250px; }
     .db-hero-banner-overlay { flex-direction: column !important; align-items: flex-start !important; padding: 1.5rem !important; gap: 1rem !important; text-align: left; position: relative !important; }
