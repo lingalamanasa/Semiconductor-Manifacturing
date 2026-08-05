@@ -331,7 +331,7 @@ function initMainLogic() {
     }
 
     if (welcomeUserText) {
-        let storedName = 'Design Specialist';
+        let storedName = welcomeUserText.innerText;
         try { storedName = localStorage.getItem('stackly_user_name') || storedName; } catch(err) {}
         welcomeUserText.innerText = storedName;
     }

@@ -296,7 +296,7 @@ header {
 /* HERO SECTION (CRISP CONTRAST & SPACIOUS) */
 .hero {
     position: relative;
-    padding: 12rem 0 6rem;
+    padding: 8rem 0 4rem;
     overflow: hidden;
     background: var(--dark-slate);
     color: #FFF;
@@ -439,7 +439,7 @@ header {
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 /* SECTIONS & CLEAN LAYOUTS */
-.section { padding: 6rem 0; position: relative; }
+.section { padding: 3rem 0; position: relative; }
 .section-head { margin-bottom: 3.5rem; max-width: 650px; }
 .section-head.text-center { margin-left: auto; margin-right: auto; text-align: center; }
 
