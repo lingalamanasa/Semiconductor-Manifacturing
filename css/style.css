@@ -287,11 +287,20 @@ header {
 .mobile-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(4px); z-index: 1050; opacity: 0; visibility: hidden; transition: var(--transition); }
 .mobile-overlay.active { opacity: 1; visibility: visible; }
 
-.mobile-menu { position: fixed; top: 0; right: -300px; width: 280px; height: 100vh; background: #FFF; z-index: 1100; padding: 3rem 2rem; transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: var(--shadow); }
+.mobile-menu { position: fixed; top: 0; right: -300px; width: 280px; height: 100vh; background: #FFF; z-index: 1100; padding: 2rem 1.8rem; transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: var(--shadow); overflow-y: auto; }
 .mobile-menu.active { right: 0; }
-.mobile-menu ul { display: flex; flex-direction: column; gap: 1.5rem; }
-.mobile-menu a { display: flex; align-items: center; gap: 1rem; font-size: 1rem; font-weight: 600; color: var(--dark-text); }
-.mobile-menu a i { color: var(--accent); }
+.mobile-menu ul { display: flex; flex-direction: column; gap: 0.5rem; list-style: none; padding: 0; }
+.mobile-menu a { display: flex; align-items: center; gap: 0.9rem; font-size: 0.95rem; font-weight: 600; color: var(--dark-text); padding: 0.75rem 1rem; border-radius: 10px; transition: var(--transition); }
+.mobile-menu a:hover { background: rgba(16,185,129,0.08); color: var(--accent); }
+.mobile-menu a i { color: var(--accent); width: 20px; text-align: center; }
+/* Divider before auth links in drawer */
+.mobile-menu .menu-divider { height: 1px; background: var(--glass-border); margin: 0.8rem 0; }
+/* Login & Register as full-width button styles in drawer */
+.mobile-menu .drawer-login { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); color: var(--accent) !important; border-radius: 10px; }
+.mobile-menu .drawer-login:hover { background: rgba(16,185,129,0.18); }
+.mobile-menu .drawer-register { background: var(--accent); color: #FFF !important; border-radius: 10px; justify-content: center; }
+.mobile-menu .drawer-register:hover { background: #059669; }
+.mobile-menu .drawer-register i { color: #FFF !important; }
 
 /* HERO SECTION (CRISP CONTRAST & SPACIOUS) */
 .hero {
@@ -561,7 +570,9 @@ footer { background: var(--dark-slate); color: #FFF; padding: 5rem 0 2rem; }
     .nav-links { display: none; }
     .menu-toggle { display: flex; }
     .nav-right { gap: 0.5rem; }
-    .login-btn { padding: 0.4rem 0.8rem; font-size: 0.78rem; }
+    /* Hide Login & Register from top navbar on mobile — they live in the drawer */
+    .nav-right .login-btn,
+    .nav-right .btn-primary { display: none; }
 
     /* -- Hero -- */
     .hero { padding: 5rem 0 3rem; }
