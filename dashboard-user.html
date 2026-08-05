@@ -451,6 +451,202 @@
                 </div>
             </div>
 
+
+            <!-- ═══ SECTION A: LIVE ACTIVITY FEED + EUV EQUIPMENT STATUS ═══ -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.8rem; margin-bottom:2.5rem;">
+
+                <!-- LIVE ACTIVITY FEED -->
+                <div class="bento-card spotlight-card" style="padding:1.8rem;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.2rem;">
+                        <h3><i class="fa-solid fa-bell" style="color:var(--accent);"></i> Live Activity Feed</h3>
+                        <span style="font-size:0.75rem; background:rgba(16,185,129,0.1); color:var(--accent); padding:0.2rem 0.7rem; border-radius:99px; font-weight:700;">● LIVE</span>
+                    </div>
+                    <div style="display:flex; flex-direction:column; gap:0.9rem;">
+                        <div style="display:flex; gap:1rem; align-items:flex-start; padding:0.8rem; background:rgba(16,185,129,0.05); border-radius:10px; border-left:3px solid var(--accent);">
+                            <i class="fa-solid fa-circle-check" style="color:var(--accent); margin-top:0.15rem;"></i>
+                            <div>
+                                <div style="font-size:0.85rem; font-weight:700;">DRC Sign-Off Complete — #STK-9904</div>
+                                <div style="font-size:0.75rem; color:var(--muted-text); margin-top:0.2rem;">Apex-N2-AI-Accelerator passed all 2,048 DRC rules on N2 GAA node.</div>
+                                <div style="font-size:0.7rem; color:var(--accent); margin-top:0.3rem;"><i class="fa-regular fa-clock"></i> 12 min ago</div>
+                            </div>
+                        </div>
+                        <div style="display:flex; gap:1rem; align-items:flex-start; padding:0.8rem; background:rgba(14,165,233,0.05); border-radius:10px; border-left:3px solid var(--secondary-blue);">
+                            <i class="fa-solid fa-spinner fa-spin" style="color:var(--secondary-blue); margin-top:0.15rem;"></i>
+                            <div>
+                                <div style="font-size:0.85rem; font-weight:700;">EUV Mask Synthesis — 85% Progress</div>
+                                <div style="font-size:0.75rem; color:var(--muted-text); margin-top:0.2rem;">Shuttle #CS-2026-08 photomask write-head completing reflective optics layers.</div>
+                                <div style="font-size:0.7rem; color:var(--secondary-blue); margin-top:0.3rem;"><i class="fa-regular fa-clock"></i> 35 min ago</div>
+                            </div>
+                        </div>
+                        <div style="display:flex; gap:1rem; align-items:flex-start; padding:0.8rem; background:var(--bg); border-radius:10px; border-left:3px solid var(--glass-border);">
+                            <i class="fa-solid fa-download" style="color:var(--muted-text); margin-top:0.15rem;"></i>
+                            <div>
+                                <div style="font-size:0.85rem; font-weight:700;">PDK v2.4 Downloaded</div>
+                                <div style="font-size:0.75rem; color:var(--muted-text); margin-top:0.2rem;">Stackly_N2_GAA_PDK_v2.4.tar.gz — 1.4 GB retrieved by design team.</div>
+                                <div style="font-size:0.7rem; color:var(--muted-text); margin-top:0.3rem;"><i class="fa-regular fa-clock"></i> 2 hours ago</div>
+                            </div>
+                        </div>
+                        <div style="display:flex; gap:1rem; align-items:flex-start; padding:0.8rem; background:var(--bg); border-radius:10px; border-left:3px solid var(--glass-border);">
+                            <i class="fa-solid fa-file-circle-plus" style="color:var(--muted-text); margin-top:0.15rem;"></i>
+                            <div>
+                                <div style="font-size:0.85rem; font-weight:700;">New Tapeout Registered — #STK-9650</div>
+                                <div style="font-size:0.75rem; color:var(--muted-text); margin-top:0.2rem;">BioSense-UltraLowPower GaN design submitted for Q4 shuttle run.</div>
+                                <div style="font-size:0.7rem; color:var(--muted-text); margin-top:0.3rem;"><i class="fa-regular fa-clock"></i> 1 day ago</div>
+                            </div>
+                        </div>
+                        <div style="display:flex; gap:1rem; align-items:flex-start; padding:0.8rem; background:var(--bg); border-radius:10px; border-left:3px solid var(--glass-border);">
+                            <i class="fa-solid fa-truck-fast" style="color:var(--muted-text); margin-top:0.15rem;"></i>
+                            <div>
+                                <div style="font-size:0.85rem; font-weight:700;">Q3 Shuttle Schedule Confirmed</div>
+                                <div style="font-size:0.75rem; color:var(--muted-text); margin-top:0.2rem;">500 reserved wafers locked for Aug 25 delivery. Logistics ETA: Sep 1.</div>
+                                <div style="font-size:0.7rem; color:var(--muted-text); margin-top:0.3rem;"><i class="fa-regular fa-clock"></i> 2 days ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EUV EQUIPMENT STATUS BOARD -->
+                <div class="bento-card spotlight-card" style="padding:1.8rem;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.2rem;">
+                        <h3><i class="fa-solid fa-atom" style="color:var(--accent);"></i> EUV Equipment Status</h3>
+                        <span style="font-size:0.75rem; color:var(--muted-text);">Fab 1 — Santa Clara</span>
+                    </div>
+                    <div style="display:flex; flex-direction:column; gap:0.8rem;">
+                        <div style="display:flex; align-items:center; gap:1rem; padding:0.9rem; background:var(--bg); border-radius:10px; border:1px solid var(--glass-border);">
+                            <img src="./images/dashboard_euv_machine_1785863158611.png" alt="EUV Scanner" style="width:52px; height:52px; border-radius:8px; object-fit:cover; flex-shrink:0;">
+                            <div style="flex:1; min-width:0;">
+                                <div style="font-size:0.85rem; font-weight:700;">EUV Scanner #04 — High-NA 0.55</div>
+                                <div style="font-size:0.75rem; color:var(--muted-text); margin-top:0.1rem;">Laser Power: 620W • Uptime: 99.8%</div>
+                                <div style="background:var(--glass-border); border-radius:99px; height:5px; margin-top:0.5rem; overflow:hidden;"><div style="width:99%; height:100%; background:var(--accent); border-radius:99px;"></div></div>
+                            </div>
+                            <span style="font-size:0.7rem; font-weight:700; color:var(--accent); background:rgba(16,185,129,0.1); padding:0.2rem 0.6rem; border-radius:99px; white-space:nowrap; flex-shrink:0;">● ACTIVE</span>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:1rem; padding:0.9rem; background:var(--bg); border-radius:10px; border:1px solid var(--glass-border);">
+                            <img src="./images/cleanroom_robotics.png" alt="Metrology Robot" style="width:52px; height:52px; border-radius:8px; object-fit:cover; flex-shrink:0;">
+                            <div style="flex:1; min-width:0;">
+                                <div style="font-size:0.85rem; font-weight:700;">Robotic Metrology Unit #ROB-4021</div>
+                                <div style="font-size:0.75rem; color:var(--muted-text); margin-top:0.1rem;">Sub-nm Alignment: Nominal • Queue: 8 wafers</div>
+                                <div style="background:var(--glass-border); border-radius:99px; height:5px; margin-top:0.5rem; overflow:hidden;"><div style="width:84%; height:100%; background:var(--secondary-blue); border-radius:99px;"></div></div>
+                            </div>
+                            <span style="font-size:0.7rem; font-weight:700; color:var(--secondary-blue); background:rgba(14,165,233,0.1); padding:0.2rem 0.6rem; border-radius:99px; white-space:nowrap; flex-shrink:0;">● BUSY</span>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:1rem; padding:0.9rem; background:var(--bg); border-radius:10px; border:1px solid var(--glass-border);">
+                            <img src="./images/cleanroom_wafer_testing.png" alt="Wafer Tester" style="width:52px; height:52px; border-radius:8px; object-fit:cover; flex-shrink:0;">
+                            <div style="flex:1; min-width:0;">
+                                <div style="font-size:0.85rem; font-weight:700;">Wafer Electrical Tester #WET-12</div>
+                                <div style="font-size:0.75rem; color:var(--muted-text); margin-top:0.1rem;">Probing Batch #STK-9710 • 48 dies tested</div>
+                                <div style="background:var(--glass-border); border-radius:99px; height:5px; margin-top:0.5rem; overflow:hidden;"><div style="width:62%; height:100%; background:var(--accent); border-radius:99px;"></div></div>
+                            </div>
+                            <span style="font-size:0.7rem; font-weight:700; color:var(--accent); background:rgba(16,185,129,0.1); padding:0.2rem 0.6rem; border-radius:99px; white-space:nowrap; flex-shrink:0;">● ACTIVE</span>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:1rem; padding:0.9rem; background:var(--bg); border-radius:10px; border:1px solid var(--glass-border);">
+                            <img src="./images/3d_chiplet_packaging.png" alt="3D Bonder" style="width:52px; height:52px; border-radius:8px; object-fit:cover; flex-shrink:0;">
+                            <div style="flex:1; min-width:0;">
+                                <div style="font-size:0.85rem; font-weight:700;">3D Bumpless Bonder — Station 7</div>
+                                <div style="font-size:0.75rem; color:var(--muted-text); margin-top:0.1rem;">Idle — Scheduled maintenance 18:00 UTC</div>
+                                <div style="background:var(--glass-border); border-radius:99px; height:5px; margin-top:0.5rem; overflow:hidden;"><div style="width:0%; height:100%; background:var(--accent); border-radius:99px;"></div></div>
+                            </div>
+                            <span style="font-size:0.7rem; font-weight:700; color:var(--muted-text); background:var(--bg-secondary); padding:0.2rem 0.6rem; border-radius:99px; white-space:nowrap; flex-shrink:0;">● IDLE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══ SECTION B: QUICK COST ESTIMATOR + QUICK ACCESS TOOLS ═══ -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.8rem; margin-bottom:2.5rem;">
+
+                <!-- QUICK COST ESTIMATOR -->
+                <div class="bento-card spotlight-card" style="padding:1.8rem;">
+                    <div class="hero-badge" style="margin-bottom:0.8rem; display:inline-flex;"><span></span> Quick Estimate</div>
+                    <h3 style="margin-bottom:0.4rem;"><i class="fa-solid fa-calculator" style="color:var(--accent);"></i> Wafer Production Estimator</h3>
+                    <p style="font-size:0.82rem; color:var(--muted-text); margin-bottom:1.2rem;">Estimate dies and production cost for your design in real-time.</p>
+                    <div style="display:flex; flex-direction:column; gap:1rem;">
+                        <div>
+                            <div style="display:flex; justify-content:space-between; font-size:0.82rem; font-weight:600; margin-bottom:0.4rem;">
+                                <span>Die Area</span><span id="dbDieVal" style="color:var(--accent);">150 mm²</span>
+                            </div>
+                            <input type="range" id="dbDieSlider" min="50" max="600" value="150" style="width:100%; accent-color:var(--accent); cursor:pointer;">
+                        </div>
+                        <div>
+                            <div style="display:flex; justify-content:space-between; font-size:0.82rem; font-weight:600; margin-bottom:0.4rem;">
+                                <span>Wafer Volume / Month</span><span id="dbVolVal" style="color:var(--accent);">500</span>
+                            </div>
+                            <input type="range" id="dbVolSlider" min="50" max="2500" value="500" step="50" style="width:100%; accent-color:var(--accent); cursor:pointer;">
+                        </div>
+                        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.7rem; margin-top:0.5rem; text-align:center;">
+                            <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.2); border-radius:10px; padding:0.8rem;">
+                                <div style="font-size:1.2rem; font-weight:800; color:var(--accent);" id="dbTotalDies">145,500</div>
+                                <div style="font-size:0.68rem; color:var(--muted-text); margin-top:0.2rem;">Good Dies / Mo</div>
+                            </div>
+                            <div style="background:rgba(14,165,233,0.08); border:1px solid rgba(14,165,233,0.2); border-radius:10px; padding:0.8rem;">
+                                <div style="font-size:1.2rem; font-weight:800; color:var(--secondary-blue);" id="dbYieldRate">70.0%</div>
+                                <div style="font-size:0.68rem; color:var(--muted-text); margin-top:0.2rem;">Yield Rate</div>
+                            </div>
+                            <div style="background:var(--bg); border:1px solid var(--glass-border); border-radius:10px; padding:0.8rem;">
+                                <div style="font-size:1.2rem; font-weight:800; color:var(--dark-text);" id="dbCostDie">$49.83</div>
+                                <div style="font-size:0.68rem; color:var(--muted-text); margin-top:0.2rem;">Cost / Die</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QUICK ACCESS TOOLS -->
+                <div class="bento-card spotlight-card" style="padding:1.8rem;">
+                    <div class="hero-badge" style="margin-bottom:0.8rem; display:inline-flex;"><span></span> Portal Tools</div>
+                    <h3 style="margin-bottom:1.2rem;"><i class="fa-solid fa-grip" style="color:var(--accent);"></i> Quick Access Tools</h3>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem;">
+                        <a href="#" data-redirect="404" class="btn-404" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; padding:1.2rem; background:var(--bg); border:1px solid var(--glass-border); border-radius:12px; text-decoration:none; color:var(--dark-text); transition:var(--transition);">
+                            <i class="fa-solid fa-cloud-arrow-up" style="font-size:1.4rem; color:var(--accent);"></i>
+                            <span style="font-size:0.78rem; font-weight:700; text-align:center;">Submit GDSII</span>
+                        </a>
+                        <a href="#" data-redirect="404" class="btn-404" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; padding:1.2rem; background:var(--bg); border:1px solid var(--glass-border); border-radius:12px; text-decoration:none; color:var(--dark-text); transition:var(--transition);">
+                            <i class="fa-solid fa-vial-circle-check" style="font-size:1.4rem; color:var(--secondary-blue);"></i>
+                            <span style="font-size:0.78rem; font-weight:700; text-align:center;">Run DRC Check</span>
+                        </a>
+                        <a href="#" data-redirect="404" class="btn-404" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; padding:1.2rem; background:var(--bg); border:1px solid var(--glass-border); border-radius:12px; text-decoration:none; color:var(--dark-text); transition:var(--transition);">
+                            <i class="fa-solid fa-file-invoice-dollar" style="font-size:1.4rem; color:var(--accent);"></i>
+                            <span style="font-size:0.78rem; font-weight:700; text-align:center;">View Invoice</span>
+                        </a>
+                        <a href="#" data-redirect="404" class="btn-404" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; padding:1.2rem; background:var(--bg); border:1px solid var(--glass-border); border-radius:12px; text-decoration:none; color:var(--dark-text); transition:var(--transition);">
+                            <i class="fa-solid fa-calendar-check" style="font-size:1.4rem; color:var(--secondary-blue);"></i>
+                            <span style="font-size:0.78rem; font-weight:700; text-align:center;">Book Shuttle Slot</span>
+                        </a>
+                        <a href="#" data-redirect="404" class="btn-404" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; padding:1.2rem; background:var(--bg); border:1px solid var(--glass-border); border-radius:12px; text-decoration:none; color:var(--dark-text); transition:var(--transition);">
+                            <i class="fa-solid fa-folder-arrow-down" style="font-size:1.4rem; color:var(--accent);"></i>
+                            <span style="font-size:0.78rem; font-weight:700; text-align:center;">Download PDK</span>
+                        </a>
+                        <a href="./contact.html" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; padding:1.2rem; background:var(--bg); border:1px solid var(--glass-border); border-radius:12px; text-decoration:none; color:var(--dark-text); transition:var(--transition);">
+                            <i class="fa-solid fa-headset" style="font-size:1.4rem; color:var(--secondary-blue);"></i>
+                            <span style="font-size:0.78rem; font-weight:700; text-align:center;">Contact Support</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+            (function() {
+                var dieSlider = document.getElementById('dbDieSlider');
+                var volSlider = document.getElementById('dbVolSlider');
+                function calc() {
+                    if (!dieSlider || !volSlider) return;
+                    var dieArea = parseFloat(dieSlider.value);
+                    var volume = parseInt(volSlider.value);
+                    document.getElementById('dbDieVal').innerText = dieArea + ' mm\u00b2';
+                    document.getElementById('dbVolVal').innerText = volume;
+                    var waferArea = Math.PI * 150 * 150;
+                    var grossDies = Math.floor((waferArea / dieArea) - (Math.PI * 300 / Math.sqrt(2 * dieArea)));
+                    var yld = Math.max(70, Math.min(99.8, Math.exp(-Math.sqrt(dieArea * 0.0012)) * 100));
+                    var goodDies = Math.floor(grossDies * (yld / 100));
+                    document.getElementById('dbTotalDies').innerText = (goodDies * volume).toLocaleString();
+                    document.getElementById('dbYieldRate').innerText = yld.toFixed(1) + '%';
+                    document.getElementById('dbCostDie').innerText = '$' + (14500 / Math.max(1, goodDies)).toFixed(2);
+                }
+                if (dieSlider) dieSlider.addEventListener('input', calc);
+                if (volSlider) volSlider.addEventListener('input', calc);
+                calc();
+            })();
+            </script>
+
         </main>
     </div>
 
