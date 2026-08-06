@@ -542,6 +542,71 @@ header {
 .metric-card { background: #FFF; border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 1.8rem; box-shadow: var(--shadow); }
 .metric-val { font-size: 2.2rem; font-weight: 800; color: var(--accent); margin-top: 0.5rem; }
 
+/* Global Hero Welcome Card (Desktop & Mobile) */
+.db-hero-card-mobile {
+    background: linear-gradient(145deg, rgba(13,148,136,0.95) 0%, rgba(2,132,199,0.92) 50%, rgba(15,23,42,0.96) 100%), url('../images/about_hq_facility.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 24px;
+    padding: 2.5rem 2.2rem 2rem;
+    color: #FFF;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+.db-hero-card-mobile h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #FFF;
+    margin-bottom: 0.6rem;
+    line-height: 1.25;
+}
+.db-hero-card-mobile h2 .welcome-name {
+    color: #fde047;
+    word-break: break-word;
+}
+.db-hero-card-mobile p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+.db-verify-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(16,185,129,0.18);
+    border: 1px solid rgba(16,185,129,0.35);
+    color: #34d399;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.45rem 0.95rem;
+    border-radius: 99px;
+    margin-bottom: 0.5rem;
+}
+.db-user-stamp-box {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+}
+.db-user-stamp-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #10b981;
+    border: 3.5px solid #fbbf24;
+    box-shadow: 0 0 20px rgba(251,191,36,0.35);
+    color: #FFF;
+    font-size: 2.2rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.6rem;
+}
+
 footer { background: var(--dark-slate); color: #FFF; padding: 5rem 0 2rem; }
 .footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 3rem; margin-bottom: 4rem; }
 .footer p { color: #94A3B8; }
@@ -709,69 +774,13 @@ footer { background: var(--dark-slate); color: #FFF; padding: 5rem 0 2rem; }
         padding: 0.2rem 0.5rem;
     }
 
-    /* -- Mobile Hero Welcome Card -- */
+    /* -- Mobile Hero Welcome Card Responsive Overrides -- */
     .db-hero-card-mobile {
-        background: linear-gradient(145deg, rgba(13,148,136,0.95) 0%, rgba(2,132,199,0.92) 50%, rgba(15,23,42,0.96) 100%), url('../images/about_hq_facility.png');
-        background-size: cover;
-        background-position: center;
-        border-radius: 24px;
         padding: 2.2rem 1.6rem 1.8rem;
-        color: #FFF;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.25);
         margin-bottom: 2rem;
-        position: relative;
-        overflow: hidden;
     }
     .db-hero-card-mobile h2 {
         font-size: 1.75rem;
-        font-weight: 800;
-        color: #FFF;
-        margin-bottom: 0.6rem;
-        line-height: 1.25;
-    }
-    .db-hero-card-mobile h2 .welcome-name {
-        color: #fde047;
-        word-break: break-word;
-    }
-    .db-hero-card-mobile p {
-        font-size: 0.88rem;
-        color: rgba(255,255,255,0.78);
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-    }
-    .db-verify-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: rgba(16,185,129,0.18);
-        border: 1px solid rgba(16,185,129,0.35);
-        color: #34d399;
-        font-size: 0.82rem;
-        font-weight: 700;
-        padding: 0.45rem 0.9rem;
-        border-radius: 99px;
-        margin-bottom: 0.5rem;
-    }
-    .db-user-stamp-box {
-        text-align: center;
-        margin-top: 1.5rem;
-        padding-top: 1.2rem;
-        border-top: 1px solid rgba(255,255,255,0.12);
-    }
-    .db-user-stamp-avatar {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        background: #10b981;
-        border: 3.5px solid #fbbf24;
-        box-shadow: 0 0 20px rgba(251,191,36,0.35);
-        color: #FFF;
-        font-size: 2.2rem;
-        font-weight: 800;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 0.6rem;
     }
 
     /* -- Dashboard Hero Banner fix -- */
