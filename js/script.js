@@ -379,16 +379,19 @@ function initMainLogic() {
         });
     });
 
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', (e) => {
+    document.querySelectorAll('#logoutBtn, .mob-drawer-logout, .mob-pill-logout, .sidebar-logout a, a[href*="login.html"]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
             try {
                 localStorage.removeItem('stackly_user_name');
                 localStorage.removeItem('stackly_user_role');
+                localStorage.removeItem('userEmail');
+                localStorage.removeItem('userUsername');
+                localStorage.removeItem('userRole');
             } catch(err) {}
             window.location.href = './index.html';
         });
-    }
+    });
 
     // FAQ Accordion Toggle Handler
     document.querySelectorAll('.faq-question').forEach(q => {
