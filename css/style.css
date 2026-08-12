@@ -544,7 +544,7 @@ header {
 
 /* Global Hero Welcome Card (Desktop & Mobile) */
 .db-hero-card-mobile {
-    background: linear-gradient(145deg, rgba(13,148,136,0.95) 0%, rgba(2,132,199,0.92) 50%, rgba(15,23,42,0.96) 100%), url('../images/about_hq_facility.png');
+    background: linear-gradient(145deg, rgba(13,148,136,0.95) 0%, rgba(2,132,199,0.92) 50%, rgba(15,23,42,0.96) 100%), url('../images/about_hq_facility.webp');
     background-size: cover;
     background-position: center;
     border-radius: 24px;
