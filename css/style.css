@@ -957,24 +957,33 @@ body::after {
   }
 
   /* Logo row */
+  .db-mob-brand-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
   .db-mob-logo {
     display: flex !important;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     text-decoration: none;
     color: #fff;
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 1.05rem;
     letter-spacing: 0.1em;
+    line-height: 1;
   }
-  .db-mob-logo img { width: 28px; height: 28px; border-radius: 7px; object-fit: cover; }
+  .db-mob-logo img { width: 24px; height: 24px; border-radius: 6px; object-fit: cover; }
 
   /* Subtitle */
   .db-mob-subtitle {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     color: #10B981;
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
   }
 
   /* Pills */
