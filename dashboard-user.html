@@ -76,15 +76,22 @@
     </div>
 
     <!-- MOBILE TOP HEADER BAR (Mobile Only) -->
-    <div class="db-mobile-bar" style="display:none;">
-        <div style="display:flex; align-items:center; gap:0.8rem;">
-            <button class="db-menu-btn" id="dbMobileToggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+    <div class="db-mobile-bar" style="display:none; flex-direction:column; padding:15px; background:var(--dark-slate); border-bottom:1px solid var(--glass-border); width: 100%;">
+        <div style="display:flex; align-items:center; gap:0.8rem; margin-bottom: 15px;">
             <a href="./dashboard-user.html" class="logo" style="display:flex; align-items:center; gap:0.6rem; text-decoration:none;">
                 <img src="./images/stackly_logo.webp" alt="Stackly Logo" style="width:28px; height:28px; border-radius:6px; object-fit:cover;">
                 <span class="logo-text" style="color:#FFF; font-size:1.1rem; font-weight:800; font-family:'Space Grotesk',sans-serif;">STACKLY</span>
             </a>
         </div>
-        <div class="db-user-avatar-badge userInitialAvatar">L</div>
+        <nav class="mobile-scrolling-menu" style="display:flex; flex-direction:row; overflow-x:auto; gap:10px; white-space:nowrap; padding-bottom:10px; width:100%; -webkit-overflow-scrolling: touch;">
+             <a href="./dashboard-user.html#overview" class="btn btn-outline" style="background:rgba(16,185,129,0.1); border-color:var(--accent); color:var(--accent); flex-shrink:0;"><i class="fa-solid fa-gauge-high"></i> Overview</a>
+             <a href="./404.html" class="btn btn-outline btn-404" style="flex-shrink:0;"><i class="fa-solid fa-rocket"></i> Active Tapeouts</a>
+             <a href="./404.html" class="btn btn-outline btn-404" style="flex-shrink:0;"><i class="fa-solid fa-folder-arrow-down"></i> PDK Repository</a>
+             <a href="./404.html" class="btn btn-outline btn-404" style="flex-shrink:0;"><i class="fa-solid fa-camera"></i> Fab Visuals</a>
+             <a href="./404.html" class="btn btn-outline btn-404" style="flex-shrink:0;"><i class="fa-solid fa-chart-line"></i> Yield Telemetry</a>
+             <a href="./404.html" class="btn btn-outline btn-404" style="flex-shrink:0;"><i class="fa-solid fa-headset"></i> Senior Support</a>
+             <a href="./login.html" class="btn btn-outline" style="flex-shrink:0; border-color:#EF4444; color:#EF4444;"><i class="fa-solid fa-power-off"></i> Logout</a>
+        </nav>
     </div>
 
     <div class="mobile-overlay" id="dashboardOverlay"></div>
