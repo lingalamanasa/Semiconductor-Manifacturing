@@ -930,3 +930,106 @@ body::after {
     padding: 20px 16px !important;
   }
 }
+
+/* ═══════════════════════════════════════════
+   MOBILE MENUBAR  — Matches Supply Chain style
+═══════════════════════════════════════════ */
+.db-mobile-bar {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    /* hide desktop sidebar */
+    .sidebar, .ent-sidebar { display: none !important; }
+    .dashboard-layout, .ent-layout { display: block !important; }
+    .dashboard-main, .ent-main { padding: 20px 16px !important; }
+
+    /* show mobile bar */
+    .db-mobile-bar {
+        display: block;
+        background: #060c16;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        padding: 14px 16px 0;
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+        width: 100%;
+    }
+
+    /* Logo row */
+    .db-mob-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: #fff;
+        font-weight: 800;
+        font-size: 1.1rem;
+        letter-spacing: 0.1em;
+        font-family: "Space Grotesk", sans-serif;
+        margin-bottom: 4px;
+    }
+    .db-mob-logo img {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+    /* Subtitle */
+    .db-mob-subtitle {
+        font-size: 0.8rem;
+        color: #10b981;
+        font-weight: 700;
+        margin-bottom: 12px;
+        padding-left: 2px;
+    }
+
+    /* Scrollable pill nav */
+    .db-mob-nav {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 8px;
+        white-space: nowrap;
+        padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .db-mob-nav::-webkit-scrollbar { display: none; }
+
+    /* Pill items */
+    .db-mob-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 9px 16px;
+        border-radius: 100px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.65);
+        background: rgba(255,255,255,0.06);
+        border: none;
+        text-decoration: none;
+        flex-shrink: 0;
+        transition: all 0.2s ease;
+    }
+    .db-mob-item:hover {
+        background: rgba(255,255,255,0.12);
+        color: #fff;
+    }
+    .db-mob-active {
+        background: #10b981 !important;
+        color: #060c16 !important;
+        font-weight: 700;
+    }
+    .db-mob-logout {
+        color: #ef4444 !important;
+        background: rgba(239,68,68,0.1) !important;
+        border: 1px solid rgba(239,68,68,0.35) !important;
+    }
+    .db-mob-logout:hover {
+        background: #ef4444 !important;
+        color: #fff !important;
+    }
+}
