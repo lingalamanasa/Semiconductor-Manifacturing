@@ -11,6 +11,7 @@
 
     <!-- MOBILE TOP HEADER BAR (Mobile Only) -->
     <div class="db-mobile-bar">
+        <button class="mob-hamburger" id="mobHamburger" aria-label="Open Menu"><span></span><span></span><span></span></button>
         <a href="./dashboard-admin.html" class="db-mob-logo">
             <img src="./images/stackly_logo.webp" alt="Stackly Logo">
             <span>STACKLY</span>
@@ -411,6 +412,46 @@
 
         </main>
     </div>
+
+
+<div class="mob-drawer-overlay" id="mobOverlay"></div>
+<div class="mob-drawer" id="mobDrawer">
+  <div class="mob-drawer-header">
+    <div class="mob-drawer-brand">
+      <img src="./images/stackly_logo.webp" alt="Stackly" style="width:28px;height:28px;border-radius:7px;object-fit:cover;">
+      <span>STACKLY</span>
+    </div>
+    <button class="mob-drawer-close" id="mobDrawerClose">✕</button>
+  </div>
+  <div class="mob-drawer-sub">Enterprise Admin Console</div>
+  <nav class="mob-drawer-nav">
+    <a href="./dashboard-admin.html#overview" class="mob-drawer-item mob-drawer-active"><i class="fa-solid fa-gauge-high"></i> Overview</a>
+    <a href="./404.html" class="mob-drawer-item"><i class="fa-solid fa-microchip"></i> Fab Operations</a>
+    <a href="./404.html" class="mob-drawer-item"><i class="fa-solid fa-layer-group"></i> Silicon Yield</a>
+    <a href="./404.html" class="mob-drawer-item"><i class="fa-solid fa-globe"></i> Global Foundry Network</a>
+    <a href="./404.html" class="mob-drawer-item"><i class="fa-solid fa-truck-fast"></i> Supply Chain</a>
+    <a href="./404.html" class="mob-drawer-item"><i class="fa-solid fa-user-tie"></i> Client Tapeouts</a>
+    <a href="./404.html" class="mob-drawer-item"><i class="fa-solid fa-gear"></i> Settings</a>
+  </nav>
+  <div class="mob-drawer-footer">
+    <a href="./login.html" class="mob-drawer-logout">
+      <i class="fa-solid fa-power-off"></i> Logout
+    </a>
+  </div>
+</div>
+<script>
+(function(){
+  var hamburger = document.getElementById('mobHamburger');
+  var overlay   = document.getElementById('mobOverlay');
+  var drawer    = document.getElementById('mobDrawer');
+  var closeBtn  = document.getElementById('mobDrawerClose');
+  function open()  { drawer.classList.add('open'); overlay.classList.add('open'); }
+  function close() { drawer.classList.remove('open'); overlay.classList.remove('open'); }
+  if(hamburger) hamburger.addEventListener('click', open);
+  if(closeBtn)  closeBtn.addEventListener('click', close);
+  if(overlay)   overlay.addEventListener('click', close);
+})();
+</script>
 
 </body>
 </html>
